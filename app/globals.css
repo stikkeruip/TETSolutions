@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #001e2e;
+  --secondary-color: #f1e5d1;
+  --accent-color: #745e30;
+}
+
+body {
+  color: var(--secondary-color);
+  background: var(--primary-color);
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-colors {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}
+
