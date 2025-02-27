@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, ReactNode, useCallback } from "react";
+import React, { useEffect, ReactNode, useCallback, useRef } from "react";
+import { usePathname } from "next/navigation";
 import BackToTopButton from "./back-to-top-button";
 
 interface SmoothScrollLayoutProps {
@@ -8,6 +9,9 @@ interface SmoothScrollLayoutProps {
 }
 
 export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps) {
+    const pathname = usePathname();
+    const isInitializedRef = useRef(false);
+
     // Throttle function to limit how often a function can be called
     const throttle = (callback: Function, delay: number = 100) => {
         let lastCall = 0;
@@ -32,14 +36,14 @@ export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps
                 const rect = element.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
 
-                // Calculate visibility percentage - start animating when element is 20% into view
-                const entryPoint = windowHeight * 0.8;
+                // Calculate visibility percentage - start animating when element is 40% into view (earlier reveal)
+                const entryPoint = windowHeight * 0.95;
 
                 if (rect.top < entryPoint) {
-                    // Calculate how far past the entry point (as percentage)
+                    // Calculate how far past the entry point (as percentage) - more gradual transition
                     const scrollProgress = Math.min(
                         1,
-                        (entryPoint - rect.top) / (entryPoint * 0.5)
+                        (entryPoint - rect.top) / (entryPoint * 0.7)
                     );
 
                     // Apply scroll progress directly to styles
@@ -84,55 +88,106 @@ export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps
         []
     );
 
+    // Function to initialize all elements for animation
+    const prepareElements = useCallback(() => {
+        // Reset initialization flag when preparing elements
+        isInitializedRef.current = true;
+
+        // Select content elements excluding footer
+        const contentElements = document.querySelectorAll<HTMLElement>(
+            'main > div, main > section, .lg\\:text-center, dl > div, .max-w-3xl, .py-12'
+        );
+
+        // Handle content elements - make sure we exclude footer content
+        contentElements.forEach((element) => {
+            // Skip any elements inside the footer
+            if (element.closest('footer')) return;
+
+            if (!element.classList.contains("scroll-animate-element")) {
+                element.classList.add("scroll-animate-element");
+                element.style.opacity = "0";
+                element.style.transform = "translateY(30px)";
+            }
+        });
+
+        // Handle footer separately - ensure it's a clean slate
+        const footer = document.querySelector<HTMLElement>('footer');
+        if (footer) {
+            // Make sure footer isn't affected by any other animation classes
+            if (!footer.classList.contains("footer-animate")) {
+                footer.classList.add("footer-animate", "scroll-animate-element");
+                footer.style.opacity = "0";
+                footer.style.transform = "translateY(30px)";
+                footer.style.transition = "transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1)";
+            }
+        }
+    }, []);
+
+    // Function to run all animations
+    const runAllAnimations = useCallback(() => {
+        handleContentAnimation();
+        handleFooterAnimation();
+    }, [handleContentAnimation, handleFooterAnimation]);
+
+    // Re-initialize when pathname changes (navigation between pages)
     useEffect(() => {
-        const prepareElements = () => {
-            // Select content elements excluding footer
-            const contentElements = document.querySelectorAll<HTMLElement>(
-                'main > div, main > section, .lg\\:text-center, dl > div, .max-w-3xl, .py-12'
-            );
+        // Reset state when path changes
+        isInitializedRef.current = false;
 
-            // Handle content elements - make sure we exclude footer content
-            contentElements.forEach((element) => {
-                // Skip any elements inside the footer
-                if (element.closest('footer')) return;
+        // Small delay to ensure DOM is updated after route change
+        const timer = setTimeout(() => {
+            prepareElements();
+            runAllAnimations();
+        }, 50);
 
-                if (!element.classList.contains("scroll-animate-element")) {
-                    element.classList.add("scroll-animate-element");
-                    element.style.opacity = "0";
-                    element.style.transform = "translateY(30px)";
-                }
-            });
+        return () => clearTimeout(timer);
+    }, [pathname, prepareElements, runAllAnimations]);
 
-            // Handle footer separately - ensure it's a clean slate
-            const footer = document.querySelector<HTMLElement>('footer');
-            if (footer) {
-                // Make sure footer isn't affected by any other animation classes
-                if (!footer.classList.contains("footer-animate")) {
-                    footer.classList.add("footer-animate");
-                    footer.style.opacity = "0";
-                    footer.style.transform = "translateY(30px)";
-                    footer.style.transition = "transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1)";
-                }
+    // Set up core functionality
+    useEffect(() => {
+        // Initialize elements on first load
+        if (!isInitializedRef.current) {
+            prepareElements();
+            runAllAnimations();
+        }
+
+        // Add event listeners for scroll
+        window.addEventListener("scroll", handleContentAnimation, { passive: true });
+        window.addEventListener("scroll", handleFooterAnimation, { passive: true });
+
+        // Handle page visibility changes (helps with back/forward navigation)
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') {
+                // Small delay to ensure DOM is ready
+                setTimeout(() => {
+                    prepareElements();
+                    runAllAnimations();
+                }, 100);
             }
         };
 
-        // Initialize elements
-        prepareElements();
+        document.addEventListener('visibilitychange', handleVisibilityChange);
 
-        // Run animation calculation on load
-        handleContentAnimation();
-        handleFooterAnimation();
+        // Also run animations when window is resized
+        const handleResize = throttle(() => {
+            runAllAnimations();
+        }, 100);
 
-        // Set up scroll event listeners
-        window.addEventListener("scroll", handleContentAnimation, { passive: true });
-        window.addEventListener("scroll", handleFooterAnimation, { passive: true });
+        window.addEventListener('resize', handleResize, { passive: true });
 
         // Clean up
         return () => {
             window.removeEventListener("scroll", handleContentAnimation);
             window.removeEventListener("scroll", handleFooterAnimation);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            window.removeEventListener('resize', handleResize);
         };
-    }, [handleContentAnimation, handleFooterAnimation]);
+    }, [
+        prepareElements,
+        runAllAnimations,
+        handleContentAnimation,
+        handleFooterAnimation
+    ]);
 
     return (
         <>
