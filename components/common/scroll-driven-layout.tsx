@@ -95,7 +95,7 @@ export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps
 
         // Select content elements excluding footer
         const contentElements = document.querySelectorAll<HTMLElement>(
-            'main > div, main > section, .lg\\:text-center, dl > div, .max-w-3xl, .py-12'
+            'main > div, main > section, .lg\\:text-center, dl > div, .max-w-3xl, .py-12, .py-16, .prose'
         );
 
         // Handle content elements - make sure we exclude footer content

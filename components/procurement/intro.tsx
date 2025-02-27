@@ -10,13 +10,13 @@ export default function ProcurementIntro() {
     }, [])
 
     return (
-        <div className="py-16 bg-[#001e2e]">
+        <div className="py-16 bg-[#f1e5d1]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center mb-8">
                     <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
                         Our Expertise
                     </h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#001e2e] sm:text-4xl">
                         About Our Procurement Services
                     </p>
                 </div>
@@ -26,14 +26,14 @@ export default function ProcurementIntro() {
                     <div className={`transition-all duration-700 ease-out ${
                         isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
                     }`}>
-                        <div className="prose prose-lg text-gray-300 max-w-none">
+                        <div className="prose prose-lg text-[#001e2e] max-w-none">
                             <p className="mb-4">
                                 <span className="font-bold">TET (Technical Engineers for Technology)</span> specializes in
-                                <span className="text-white"> technology procurement</span>, delivering high-quality hardware
-                                and equipment tailored to <span className="text-white">business, training, and industrial needs</span>.
+                                <span className="text-[#745e30] font-semibold"> technology procurement</span>, delivering high-quality hardware
+                                and equipment tailored to <span className="text-[#745e30] font-semibold">business, training, and industrial needs</span>.
                             </p>
                             <p className="mb-4">
-                                With <span className="text-white">years of experience</span>, we ensure that every procurement
+                                With <span className="text-[#745e30] font-semibold">years of experience</span>, we ensure that every procurement
                                 meets global standards and client expectations.
                             </p>
                             <p className="mb-6">
@@ -43,7 +43,7 @@ export default function ProcurementIntro() {
                             </p>
                             <div className="mt-8">
                                 <a href="#procurement-services"
-                                   className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-[#f1e5d1] bg-transparent hover:bg-[#745e30] transition-colors">
+                                   className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-[#001e2e] transition-colors">
                                     Learn More About Our Process
                                 </a>
                             </div>
@@ -60,7 +60,7 @@ export default function ProcurementIntro() {
                                 alt="TET Procurement Team in action"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#001e2e] via-transparent to-transparent opacity-40"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-[#001e2e] via-transparent to-transparent opacity-30"></div>
                         </div>
                     </div>
                 </div>
