@@ -52,19 +52,10 @@ const categories = [
 
 export default function ProcurementCategories() {
     const [isLoaded, setIsLoaded] = useState(false)
-    const [hoverEnabled, setHoverEnabled] = useState(false)
     const isMobile = useIsMobile()
 
     useEffect(() => {
         setIsLoaded(true)
-
-        // Enable hover animations after all initial animations are complete
-        // (Use longest delay + animation duration)
-        const timer = setTimeout(() => {
-            setHoverEnabled(true)
-        }, 1200); // 150ms initial delay + (5 * 75ms for last item) + 700ms duration
-
-        return () => clearTimeout(timer);
     }, [])
 
     return (
@@ -89,17 +80,12 @@ export default function ProcurementCategories() {
                         {categories.map((category, index) => (
                             <div
                                 key={category.id}
-                                className={`
-                                    group relative overflow-hidden rounded-lg shadow-lg 
-                                    ${hoverEnabled ? 'hover:shadow-xl hover:-translate-y-1' : ''} 
-                                    h-64 
-                                    ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-                                `}
+                                className={`category-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 h-64 ${
+                                    isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                                }`}
                                 style={{
-                                    // Only apply these transitions for the initial load animation
-                                    transition: isLoaded && !hoverEnabled
-                                        ? `opacity 700ms ease-out ${150 + index * 75}ms, transform 700ms ease-out ${150 + index * 75}ms`
-                                        : '',
+                                    // Only apply delay for the initial load animation
+                                    transitionDelay: isLoaded ? '0ms' : `${150 + index * 75}ms`,
                                 }}
                             >
                                 {/* Background Image with Overlay */}
@@ -107,78 +93,45 @@ export default function ProcurementCategories() {
                                     <img
                                         src={category.image}
                                         alt={category.name}
-                                        className={`
-                                            w-full h-full object-cover 
-                                            ${hoverEnabled ? 'group-hover:scale-110' : ''}
-                                            ${category.id === "vr" ? "object-position-y-bottom" : ""}
-                                        `}
-                                        style={{
-                                            objectPosition: category.id === "vr" ? "center 30%" : "",
-                                            transition: hoverEnabled ? "transform 500ms" : "none",
-                                        }}
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                        style={category.id === "vr" ? { objectPosition: "center 30%" } : {}}
                                     />
-                                    <div
-                                        className={`
-                                            absolute inset-0 bg-[#001e2e] opacity-75 
-                                            ${hoverEnabled ? 'group-hover:opacity-90' : ''}
-                                        `}
-                                        style={{
-                                            transition: hoverEnabled ? "opacity 300ms" : "none",
-                                        }}
-                                    ></div>
+                                    <div className="absolute inset-0 bg-[#001e2e] opacity-75 group-hover:opacity-90 transition-opacity duration-300"></div>
                                 </div>
 
                                 <div className="relative h-full w-full p-6 flex flex-col justify-center items-center text-center">
                                     {/* Title - Always Visible and Centered */}
-                                    <h3
-                                        className="text-xl md:text-2xl font-bold text-white mb-4"
-                                        style={{
-                                            transition: hoverEnabled ? "transform 300ms" : "none",
-                                        }}
-                                    >
+                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4 transform transition-transform duration-300 group-hover:translate-y-0">
                                         {category.name}
                                     </h3>
 
                                     {/* Description - Hidden Initially, Revealed on Hover */}
-                                    <p
-                                        className={`
-                                            text-gray-300 opacity-0 max-h-0 overflow-hidden 
-                                            ${hoverEnabled ? 'group-hover:opacity-100 group-hover:max-h-96' : ''}
-                                        `}
-                                        style={{
-                                            transition: hoverEnabled
-                                                ? "opacity 500ms ease-in-out, max-height 500ms ease-in-out"
-                                                : "none",
-                                        }}
-                                    >
+                                    <p className="text-gray-300 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-96 transition-all duration-300 ease-in-out">
                                         {category.description}
                                     </p>
                                 </div>
 
-                                <div
-                                    className={`
-                                        absolute inset-0 border-2 border-transparent 
-                                        ${hoverEnabled ? 'group-hover:border-[#745e30]' : ''}
-                                        rounded-lg
-                                    `}
-                                    style={{
-                                        transition: hoverEnabled ? "border-color 300ms" : "none",
-                                    }}
-                                ></div>
-
-                                {/* Add hover transition styles only after initial load is complete */}
-                                {hoverEnabled && (
-                                    <style jsx>{`
-                                        .group {
-                                            transition: box-shadow 300ms, transform 300ms;
-                                        }
-                                    `}</style>
-                                )}
+                                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#745e30] rounded-lg transition-colors duration-300"></div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
+
+            {/* Global styles for consistent hover transitions */}
+            <style jsx global>{`
+                .category-card {
+                    transition-property: opacity, transform, box-shadow;
+                    transition-duration: 700ms, 300ms, 300ms;
+                    transition-timing-function: ease-out, ease-out, ease-out;
+                }
+                
+                /* When loaded, ensure all hover animations are quick and consistent */
+                .category-card:hover {
+                    transition-delay: 0ms !important;
+                    transition-duration: 300ms;
+                }
+            `}</style>
         </div>
     )
 }

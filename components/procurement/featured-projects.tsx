@@ -17,7 +17,7 @@ const projects: Project[] = [
         id: "electric-vehicles",
         title: "Electric & Hybrid Vehicles Training",
         description: "Partnered with the Vocational Training Center (VTC) to provide state-of-the-art electric & hybrid vehicle maintenance equipment and comprehensive teacher training programs.",
-        image: "/images/procurement/projects/electric-vehicles.jpg",
+        image: "/images/procurement/projects/featured-ev.jpg",
     },
     {
         id: "vr-safety",
@@ -29,19 +29,19 @@ const projects: Project[] = [
         id: "physiotherapy",
         title: "Physiotherapy Center Establishment",
         description: "Established a fully equipped physiotherapy center in collaboration with Life Nerve Physiotherapy, supplying medical tools and educational materials.",
-        image: "/images/procurement/projects/physiotherapy.jpg",
+        image: "/images/procurement/projects/physiotherapy.webp",
     },
     {
         id: "ppe",
         title: "PPE and Rescue Equipment Consultancy",
         description: "Provided consultancy services to UNOPS for personal protective equipment (PPE) and rescue equipment specifications in Yemen, focusing on civil defense preparedness.",
-        image: "/images/procurement/projects/ppe.jpg",
+        image: "/images/procurement/projects/ppe.webp",
     },
     {
         id: "laser",
         title: "Laser Engraving Supply and Training",
         description: "Supplied and installed Laser Engraving CNC machines at VTCs in collaboration with JICA, including comprehensive training for teachers on machine operation.",
-        image: "/images/procurement/projects/laser-engraving.jpg",
+        image: "/images/procurement/projects/laser-engraving.webp",
     }
 ]
 

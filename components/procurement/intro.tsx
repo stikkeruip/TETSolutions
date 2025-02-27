@@ -56,7 +56,7 @@ export default function ProcurementIntro() {
                     }`}>
                         <div className="relative h-64 sm:h-72 md:h-96 lg:h-full rounded-lg overflow-hidden shadow-xl">
                             <img
-                                src="/images/procurement/procurement-team.jpg"
+                                src="/images/procurement/hero.jpeg"
                                 alt="TET Procurement Team in action"
                                 className="w-full h-full object-cover"
                             />

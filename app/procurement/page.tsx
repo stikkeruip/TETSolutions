@@ -3,8 +3,9 @@ import Footer from "@/components/common/footer"
 import ProcurementHero from "@/components/procurement/hero"
 import ProcurementIntro from "@/components/procurement/intro"
 import ProcurementCategories from "@/components/procurement/categories"
-import WhyTET from "@/components/procurement/why-tet" // Import the new component
+import WhyTET from "@/components/procurement/why-tet"
 import FeaturedProjects from "@/components/procurement/featured-projects"
+import ProcurementContact from "@/components/procurement/contact" // Import the new component
 
 export default function ProcurementPage() {
     return (
@@ -29,6 +30,9 @@ export default function ProcurementPage() {
 
                 {/* Featured Projects section - Dark background */}
                 <FeaturedProjects />
+
+                {/* Contact Form section - Dark background */}
+                <ProcurementContact />
             </main>
             <Footer />
         </div>

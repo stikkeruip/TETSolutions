@@ -42,7 +42,7 @@ export default function WhyChooseTET() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="/images/procurement/why-choose-bg.jpg"
+                    src="/images/procurement/hero.jpeg"
                     alt="TET Procurement Excellence"
                     className="w-full h-full object-cover"
                 />
@@ -65,19 +65,20 @@ export default function WhyChooseTET() {
                     </p>
                 </div>
 
-                {/* Reasons Grid - MATCHING PROCUREMENT CATEGORIES STYLE */}
+                {/* Reasons Grid */}
                 <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {reasons.map((reason, index) => (
                         <div
                             key={index}
-                            className={`group relative bg-[#ffffff] bg-opacity-5 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 transition-all duration-700 ease-out ${
+                            className={`reason-card group relative bg-[#ffffff] bg-opacity-5 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
                                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                             }`}
                             style={{
-                                transitionDelay: `${150 + index * 75}ms`
+                                // Only apply delay for the initial load animation
+                                transitionDelay: isLoaded ? '0ms' : `${150 + index * 75}ms`,
                             }}
                         >
-                            {/* Border that appears on hover - matching categories style */}
+                            {/* Border that appears on hover */}
                             <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#745e30] rounded-lg transition-colors duration-300"></div>
 
                             <div className="relative flex items-start">
@@ -105,6 +106,21 @@ export default function WhyChooseTET() {
                     </a>
                 </div>
             </div>
+
+            {/* Global styles for consistent hover transitions */}
+            <style jsx global>{`
+                .reason-card {
+                    transition-property: opacity, transform, box-shadow;
+                    transition-duration: 700ms, 300ms, 300ms;
+                    transition-timing-function: ease-out, ease-out, ease-out;
+                }
+                
+                /* When loaded, ensure all hover animations are quick and consistent */
+                .reason-card:hover {
+                    transition-delay: 0ms !important;
+                    transition-duration: 300ms;
+                }
+            `}</style>
         </div>
     )
 }
