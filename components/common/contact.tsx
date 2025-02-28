@@ -3,7 +3,15 @@
 import { useState, useEffect } from "react"
 import { Send, Check } from "lucide-react"
 
-export default function ProcurementContact() {
+interface ContactProps {
+    title?: string;
+    subtitle?: string;
+}
+
+export default function Contact({
+                                    title = "Contact Us",
+                                    subtitle = "Get in touch with our team for more information about our services."
+                                }: ContactProps) {
     const [isLoaded, setIsLoaded] = useState(false)
     const [formState, setFormState] = useState({
         name: "",
@@ -69,10 +77,10 @@ export default function ProcurementContact() {
                         Contact Us
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
-                        Get a Quote or Consultation
+                        {title}
                     </p>
                     <p className="mt-4 max-w-2xl text-xl text-gray-300 lg:mx-auto">
-                        Need high-quality procurement solutions for your business? Contact us today.
+                        {subtitle}
                     </p>
                 </div>
 
@@ -158,7 +166,7 @@ export default function ProcurementContact() {
                                             onChange={handleChange}
                                             rows={4}
                                             className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#001e2e] bg-opacity-50 text-white focus:ring-[#745e30] focus:border-[#745e30]"
-                                            placeholder="Please describe your procurement needs..."
+                                            placeholder="Please describe your needs..."
                                             required
                                         />
                                     </div>

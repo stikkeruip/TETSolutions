@@ -5,7 +5,7 @@ import ProcurementIntro from "@/components/procurement/intro"
 import ProcurementCategories from "@/components/procurement/categories"
 import WhyTET from "@/components/procurement/why-tet"
 import FeaturedProjects from "@/components/procurement/featured-projects"
-import ProcurementContact from "@/components/procurement/contact" // Import the new component
+import Contact from "@/components/common/contact"
 
 export default function ProcurementPage() {
     return (
@@ -32,7 +32,10 @@ export default function ProcurementPage() {
                 <FeaturedProjects />
 
                 {/* Contact Form section - Dark background */}
-                <ProcurementContact />
+                <Contact
+                    title="Get a Quote or Consultation"
+                    subtitle="Need high-quality procurement solutions for your business? Contact us today."
+                />
             </main>
             <Footer />
         </div>

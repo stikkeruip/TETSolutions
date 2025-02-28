@@ -4,7 +4,7 @@ import Hero from "@/components/home/hero"
 import Services from "@/components/home/services"
 import About from "@/components/home/about"
 import Features from "@/components/home/features"
-import Contact from "@/components/home/contact"
+import Contact from "@/components/common/contact"
 
 export default function Home() {
     return (
@@ -34,7 +34,10 @@ export default function Home() {
                 <Services />
                 <About />
                 <Features />
-                <Contact />
+                <Contact
+                    title="Get in Touch with TET Solutions"
+                    subtitle="Have questions about our services? Looking for innovative technology solutions for your business? Contact us today."
+                />
             </main>
             <Footer />
         </div>
