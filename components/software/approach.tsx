@@ -45,8 +45,19 @@ export default function SoftwareApproach() {
     ]
 
     return (
-        <div className="py-16 bg-[#001e2e]" id="development-approach">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-16 bg-[#001e2e] relative" id="development-approach">
+            {/* Background pattern overlay */}
+            <div className="absolute inset-0 opacity-15">
+                <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <defs>
+                        <pattern id="dev-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1" fill="#f1e5d1" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#dev-pattern)" />
+                </svg>
+            </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
@@ -61,161 +72,130 @@ export default function SoftwareApproach() {
                     </p>
                 </div>
 
-                <div className={`mt-12 transition-all duration-700 ease-out ${
+                {/* Desktop view - Timeline approach */}
+                <div className={`hidden lg:block mt-16 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    {/* Desktop view - Hexagonal card-based approach */}
-                    <div className="hidden lg:block">
-                        <div className="relative mx-auto max-w-5xl">
-                            {/* Step cards */}
-                            <div className="grid grid-cols-6 gap-6">
-                                {developmentSteps.map((step, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex flex-col items-center"
-                                    >
-                                        <div
-                                            className={`w-full aspect-square relative cursor-pointer group transition-all duration-300 ${
-                                                activeStep === index ? 'z-10' : 'z-0'
-                                            }`}
-                                            onClick={() => setActiveStep(index)}
-                                        >
-                                            {/* Card background with pseudo-3D effect */}
-                                            <div className={`absolute inset-0 rounded-xl shadow-lg transform transition-all duration-300 ${
-                                                activeStep === index
-                                                    ? 'bg-[#745e30] scale-105'
-                                                    : 'bg-[#0c2b3d] group-hover:bg-[#132f3f]'
-                                            }`}></div>
+                    <div className="relative">
+                        {/* Timeline line - starts at the top of the first icon and goes to the bottom */}
+                        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#745e30] to-[#001e2e] opacity-50" style={{ top: "36px", height: "calc(100% - 36px)" }}></div>
 
-                                            {/* Card content */}
-                                            <div className="absolute inset-2 rounded-lg bg-[#001e2e] flex flex-col items-center justify-center p-2">
-                                                {/* Icon */}
-                                                <div className={`w-12 h-12 flex items-center justify-center rounded-full mb-2 transition-all duration-300 ${
-                                                    activeStep === index
-                                                        ? 'bg-[#745e30]'
-                                                        : 'bg-[#0c2b3d] group-hover:bg-[#132f3f]'
-                                                }`}>
-                                                    <step.icon className={`h-6 w-6 ${
-                                                        activeStep === index ? 'text-white' : 'text-[#745e30] group-hover:text-white'
-                                                    }`} />
-                                                </div>
+                        {/* Timeline items */}
+                        <div className="space-y-20">
+                            {developmentSteps.map((step, index) => (
+                                <div
+                                    key={index}
+                                    className={`flex items-center transition-all duration-500 ${
+                                        index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                                    }`}
+                                >
+                                    {/* Content side */}
+                                    <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                                        <h3 className="text-xl font-bold text-[#745e30] mb-2">{step.title}</h3>
+                                        <p className="text-gray-300">{step.description}</p>
+                                    </div>
 
-                                                {/* Title */}
-                                                <h3 className={`text-center text-sm font-medium transition-all duration-300 ${
-                                                    activeStep === index ? 'text-[#745e30]' : 'text-white'
-                                                }`}>
-                                                    {step.title}
-                                                </h3>
+                                    {/* Center point */}
+                                    <div className="w-2/12 flex justify-center">
+                                        <div className="relative">
+                                            <div
+                                                className="w-12 h-12 rounded-full bg-[#001e2e] border-2 border-[#745e30] flex items-center justify-center z-10 transition-transform duration-300 hover:scale-110 cursor-pointer"
+                                                onClick={() => setActiveStep(index)}
+                                            >
+                                                <step.icon className="h-6 w-6 text-white" />
+                                            </div>
+                                            {/* Removed the pulsing effect */}
 
-                                                {/* Number indicator */}
-                                                <div className={`absolute top-1 right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${
-                                                    activeStep === index
-                                                        ? 'bg-white text-[#745e30]'
-                                                        : 'bg-[#745e30] text-white opacity-75'
-                                                }`}>
-                                                    {index + 1}
-                                                </div>
+                                            {/* Number indicator positioned on the opposite side of the content */}
+                                            <div
+                                                className={`absolute w-6 h-6 rounded-full bg-[#745e30] flex items-center justify-center text-xs font-bold text-white ${
+                                                    index % 2 === 0
+                                                        ? 'left-full ml-2' // Right side (opposite of text)
+                                                        : 'right-full mr-2' // Left side (opposite of text)
+                                                }`}
+                                            >
+                                                {index + 1}
                                             </div>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
 
-                            {/* Description section with matching border design */}
-                            <div className="mt-12 relative max-w-3xl mx-auto">
-                                <div className="relative" style={{ minHeight: "160px" }}>
-                                    {/* Outer border layer */}
-                                    <div className="absolute inset-0 rounded-xl shadow-lg bg-[#745e30]"></div>
-
-                                    {/* Description container */}
-                                    <div className="absolute inset-2 rounded-lg bg-[#001e2e] flex items-center justify-center shadow-inner">
-                                        {developmentSteps.map((step, index) => (
-                                            <div
-                                                key={`desc-${index}`}
-                                                className={`absolute inset-0 p-6 flex items-center justify-center transition-all duration-500 ${
-                                                    activeStep === index
-                                                        ? 'opacity-100 transform translate-y-0'
-                                                        : 'opacity-0 transform translate-y-10 pointer-events-none'
-                                                }`}
-                                            >
-                                                <div className="flex items-start max-w-xl">
-                                                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#745e30] flex items-center justify-center mr-4 text-white font-medium">
-                                                        {index + 1}
-                                                    </span>
-                                                    <div>
-                                                        <h4 className="text-[#745e30] font-bold mb-2">{step.title}</h4>
-                                                        <p className="text-gray-300">{step.description}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    {/* Empty side */}
+                                    <div className="w-5/12"></div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
+                </div>
 
-                    {/* Mobile view - Accordion-style cards */}
-                    <div className="lg:hidden space-y-4">
+                {/* Mobile view - Streamlined cards */}
+                <div className={`lg:hidden mt-12 transition-all duration-700 ease-out ${
+                    isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
+                    <div className="space-y-4">
                         {developmentSteps.map((step, index) => (
                             <div
                                 key={index}
-                                className={`rounded-lg overflow-hidden transform transition-all duration-300 ${
-                                    activeStep === index
-                                        ? 'shadow-lg'
-                                        : 'shadow'
+                                className={`relative bg-gradient-to-r from-[#0c2b3d] to-[#001e2e] rounded-lg overflow-hidden transition-all duration-300 ${
+                                    activeStep === index ? 'shadow-lg border-l-4 border-[#745e30]' : 'shadow border-l-4 border-transparent'
                                 }`}
                             >
-                                {/* Gradient top border for active step */}
-                                <div className={`h-1 w-full bg-gradient-to-r from-[#745e30] to-[#f1e5d1] transition-opacity duration-300 ${
-                                    activeStep === index ? 'opacity-100' : 'opacity-0'
-                                }`}></div>
-
-                                {/* Header section */}
                                 <div
-                                    className={`flex items-center p-4 cursor-pointer ${
-                                        activeStep === index
-                                            ? 'bg-[#0c2b3d]'
-                                            : 'bg-[#001e2e]'
-                                    }`}
+                                    className="p-4 cursor-pointer flex items-center"
                                     onClick={() => setActiveStep(index === activeStep ? -1 : index)}
                                 >
-                                    <div className={`flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full mr-4 ${
-                                        activeStep === index ? 'bg-[#745e30]' : 'bg-[#0c2b3d] border border-[#745e30]'
-                                    }`}>
-                                        <step.icon className={`h-5 w-5 ${
-                                            activeStep === index ? 'text-white' : 'text-[#745e30]'
-                                        }`} />
+                                    <div className="relative flex-shrink-0">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                                            activeStep === index ? 'bg-[#745e30]' : 'bg-[#0c2b3d]'
+                                        }`}>
+                                            <step.icon className={`h-5 w-5 ${
+                                                activeStep === index ? 'text-white' : 'text-[#745e30]'
+                                            }`} />
+                                        </div>
+                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#0c2b3d] rounded-full flex items-center justify-center text-xs font-medium border border-[#745e30] text-white">
+                                            {index + 1}
+                                        </div>
                                     </div>
 
-                                    <h3 className={`text-lg font-medium ${
-                                        activeStep === index ? 'text-[#745e30]' : 'text-white'
-                                    }`}>
-                                        {step.title}
-                                    </h3>
+                                    <div className="ml-4 flex-grow">
+                                        <h3 className={`text-lg font-medium transition-colors duration-300 ${
+                                            activeStep === index ? 'text-[#745e30]' : 'text-white'
+                                        }`}>
+                                            {step.title}
+                                        </h3>
+                                    </div>
 
                                     <div className="ml-auto">
-                                        <div className={`w-6 h-6 rounded-full bg-[#745e30] flex items-center justify-center text-xs font-medium text-white transition-all duration-300 ${
-                                            activeStep === index ? 'opacity-100 transform rotate-0' : 'opacity-50 transform rotate-180'
+                                        <div className={`w-6 h-6 flex items-center justify-center text-lg text-[#745e30] transition-transform duration-300 ${
+                                            activeStep === index ? 'transform rotate-180' : ''
                                         }`}>
                                             {activeStep === index ? '−' : '+'}
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Expandable description */}
-                                <div className={`transition-all duration-500 overflow-hidden bg-[#0c2b3d] ${
+                                {/* Expandable content */}
+                                <div className={`overflow-hidden transition-all duration-300 ${
                                     activeStep === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
                                 }`}>
-                                    <div className="px-4 pb-4 pt-0 ml-14">
-                                        <p className="text-gray-300">
-                                            {step.description}
-                                        </p>
+                                    <div className="p-4 pt-0 ml-14 text-gray-300">
+                                        {step.description}
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+                </div>
+
+                {/* Call to action */}
+                <div className={`mt-16 text-center transition-all duration-700 ease-out delay-300 ${
+                    isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
+                    <a
+                        href="#featured-software-projects"
+                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-transparent hover:bg-[#745e30] transition-colors"
+                    >
+                        See Our Development in Action
+                    </a>
                 </div>
             </div>
         </div>
