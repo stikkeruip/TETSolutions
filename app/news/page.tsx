@@ -156,21 +156,22 @@ export default function NewsPage() {
                 </div>
             </div>
 
-            <main className="flex-grow bg-[#f1e5d1]">
+            {/* Main content section - Now in dark blue */}
+            <main className="flex-grow bg-[#001e2e]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Search and filter bar */}
                     <div className={`bg-white rounded-lg shadow-md p-4 mb-8 transition-all duration-700 ease-out ${
                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     }`}>
                         <div className="flex flex-col md:flex-row items-center gap-4">
-                            {/* Search input */}
+                            {/* Search input with updated border color */}
                             <div className="w-full md:w-1/2 relative">
                                 <input
                                     type="text"
                                     placeholder="Search articles..."
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#745e30] focus:border-transparent"
+                                    className="w-full pl-10 pr-4 py-2 border border-[#f1e5d1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#745e30] focus:border-transparent"
                                 />
                                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                             </div>
@@ -208,8 +209,8 @@ export default function NewsPage() {
                         </div>
                     </div>
 
-                    {/* Results info */}
-                    <div className={`text-[#001e2e] mb-6 transition-all duration-700 ease-out delay-100 ${
+                    {/* Results info - Updated text color for better visibility on dark background */}
+                    <div className={`text-white mb-6 transition-all duration-700 ease-out delay-100 ${
                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     }`}>
                         <p className="font-medium">
@@ -240,12 +241,12 @@ export default function NewsPage() {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-16">
+                        <div className="text-center py-16 bg-white bg-opacity-5 rounded-lg backdrop-blur-sm">
                             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#001e2e] text-white mb-4">
                                 <Filter size={24} />
                             </div>
-                            <h3 className="text-xl font-bold text-[#001e2e] mb-2">No articles found</h3>
-                            <p className="text-[#001e2e] text-opacity-80 max-w-md mx-auto">
+                            <h3 className="text-xl font-bold text-white mb-2">No articles found</h3>
+                            <p className="text-gray-300 max-w-md mx-auto">
                                 Try adjusting your search or filter criteria to find what you're looking for.
                             </p>
                             <button
