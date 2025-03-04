@@ -260,9 +260,11 @@ export default function EUProjectsPage() {
                         </p>
                     </div>
 
-                    {/* Projects grid */}
+                    {/* Projects grid - UPDATED with centering logic for single items */}
                     {filteredProjects.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${
+                            filteredProjects.length === 1 ? 'md:grid-cols-1 max-w-xl mx-auto' : ''
+                        }`}>
                             {filteredProjects.map((project, index) => (
                                 <div
                                     key={project.id}
