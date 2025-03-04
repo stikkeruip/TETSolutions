@@ -171,12 +171,7 @@ export default function Contact({
                                         />
                                     </div>
 
-                                    <div className="flex justify-between items-center">
-                                        <div className="text-sm text-gray-300">
-                                            <p>📍 TET Solutions Office</p>
-                                            <p>📧 Email: info@tetsolutions.com</p>
-                                            <p>🌍 Website: www.tetsolutions.com</p>
-                                        </div>
+                                    <div className="flex justify-center items-center">
                                         <button
                                             type="submit"
                                             disabled={formStatus.submitting}

@@ -43,18 +43,20 @@ export default function Hero() {
                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     }`}
                 >
-                  <div className="rounded-md shadow">
-                    <Link
-                        href="#"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#f1e5d1] hover:text-[#013d60] md:py-4 md:text-lg md:px-10 transition-colors"
-                    >
-                      Placeholder
-                    </Link>
-                  </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
                     <Link
-                        href="/contact"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-[#f1e5d1] bg-transparent hover:bg-[#9A7E43] md:py-4 md:text-lg md:px-10 transition-colors"
+                        href="#contact-form"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#f1e5d1] hover:text-[#013d60] md:py-4 md:text-lg md:px-10 transition-colors"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const contactSection = document.getElementById('contact-form');
+                          if (contactSection) {
+                            window.scrollTo({
+                              top: contactSection.offsetTop,
+                              behavior: 'smooth'
+                            });
+                          }
+                        }}
                     >
                       Contact Us
                     </Link>
