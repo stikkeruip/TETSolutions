@@ -17,7 +17,7 @@ export default function SoftwareHero() {
                 {/* Image first */}
                 <div className="h-full w-full overflow-hidden">
                     <img
-                        src="/images/software/hero.webp"
+                        src="/images/software/hero.jpg"
                         alt="Software development and digital solutions"
                         className={`w-full h-full object-cover transition-transform duration-7000 ease-out ${
                             isLoaded ? 'scale-105' : 'scale-100'
@@ -26,7 +26,7 @@ export default function SoftwareHero() {
                     />
                 </div>
                 {/* Overlay after (will be on top of the image) */}
-                <div className="absolute inset-0 bg-[#013d60] opacity-60"></div>
+                <div className="absolute inset-0 bg-[#013d60] opacity-30"></div>
             </div>
 
             {/* Content overlay */}

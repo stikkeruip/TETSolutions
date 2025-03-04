@@ -12,7 +12,7 @@ export default function Home() {
             {/* Combined header section with shared background */}
             <div className="relative">
                 <div className="absolute inset-0 z-0">
-                    <div className="bg-[#013d60] opacity-60 absolute inset-0"></div>
+                    <div className="bg-[#013d60] opacity-30 absolute inset-0"></div>
                     <div className="h-full w-full overflow-hidden">
                         <img
                             src="/images/home/hero-background.jpg"
