@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react"
 import Navbar from "@/components/common/navbar"
 import Footer from "@/components/common/footer"
-import ProjectCard from "@/components/eu-projects/card"
-import ProjectModal from "@/components/eu-projects/modal"
+import ProjectPhotoGallery from "@/components/eu-projects/photo-gallery"
 import { Search, Filter } from "lucide-react"
 
 // Project data structure
@@ -109,11 +108,8 @@ const euProjects: Project[] = [
 
 export default function EUProjectsPage() {
     const [isLoaded, setIsLoaded] = useState(false)
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-    const [isModalOpen, setIsModalOpen] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-    const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(-1)
 
     // Extract unique categories
     const categories = Array.from(new Set(euProjects.map(project => project.category)))
@@ -129,32 +125,39 @@ export default function EUProjectsPage() {
         return matchesSearch && matchesCategory
     })
 
-    // Handle card click
-    const handleCardClick = (project: Project) => {
-        setSelectedProject(project)
-        setIsModalOpen(true)
-        setCurrentProjectIndex(filteredProjects.findIndex(p => p.id === project.id))
-    }
-
-    // Modal navigation
-    const handlePreviousProject = () => {
-        if (currentProjectIndex > 0) {
-            setSelectedProject(filteredProjects[currentProjectIndex - 1])
-            setCurrentProjectIndex(currentProjectIndex - 1)
-        }
-    }
-
-    const handleNextProject = () => {
-        if (currentProjectIndex < filteredProjects.length - 1) {
-            setSelectedProject(filteredProjects[currentProjectIndex + 1])
-            setCurrentProjectIndex(currentProjectIndex + 1)
-        }
-    }
-
     // Set loaded state
     useEffect(() => {
         setIsLoaded(true)
     }, [])
+
+    // Render the project content
+    const renderContent = (project: Project) => {
+        let content = project.content
+
+        // For the WIN-WIN project with photos
+        if (project.id === "win-win-project" && project.photos) {
+            content = content.replace(
+                '<project-photo-gallery-placeholder></project-photo-gallery-placeholder>',
+                '<div id="gallery-container"></div>'
+            )
+        }
+
+        return (
+            <div className="prose max-w-none text-[#013d60]">
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+
+                {/* Inject the actual components after the content is rendered */}
+                {project.id === "win-win-project" && project.photos && (
+                    <div className="my-6">
+                        <ProjectPhotoGallery
+                            images={project.photos}
+                            alt={project.title}
+                        />
+                    </div>
+                )}
+            </div>
+        )
+    }
 
     return (
         <div className="min-h-screen flex flex-col bg-[#013d60] text-white">
@@ -260,23 +263,66 @@ export default function EUProjectsPage() {
                         </p>
                     </div>
 
-                    {/* Projects grid - UPDATED with centering logic for single items */}
+                    {/* Projects expanded view */}
                     {filteredProjects.length > 0 ? (
-                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${
-                            filteredProjects.length === 1 ? 'md:grid-cols-1 max-w-xl mx-auto' : ''
-                        }`}>
+                        <div className="space-y-12">
                             {filteredProjects.map((project, index) => (
                                 <div
                                     key={project.id}
-                                    className={`transition-all duration-700 ease-out ${
+                                    className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-700 ease-out ${
                                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                     }`}
                                     style={{ transitionDelay: isLoaded ? '0ms' : `${200 + index * 100}ms` }}
                                 >
-                                    <ProjectCard
-                                        project={project}
-                                        onCardClick={handleCardClick}
-                                    />
+                                    {/* Project header with image */}
+                                    <div className="relative">
+                                        <div className="h-64 md:h-80 w-full overflow-hidden">
+                                            <img
+                                                src={project.image}
+                                                alt={project.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#013d60] to-transparent opacity-70"></div>
+                                        </div>
+
+                                        {/* Category tag and EU flag */}
+                                        <div className="absolute top-4 left-4 flex gap-2">
+                                            <div className="bg-[#9A7E43] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                                                {project.category}
+                                            </div>
+                                            <div className="bg-[#003399] text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                                                <span className="mr-1">EU Funded</span>
+                                                <span className="text-yellow-300">★</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Title and meta info overlay */}
+                                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                                            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                                                {project.title}
+                                            </h2>
+
+                                            <div className="flex flex-wrap items-center text-sm text-white mt-3 gap-y-2">
+                                                <div className="flex items-center mr-6">
+                                                    <span className="mr-2 font-semibold">Start:</span>
+                                                    <span>{project.date}</span>
+                                                </div>
+                                                <div className="flex items-center mr-6">
+                                                    <span className="mr-2 font-semibold">Duration:</span>
+                                                    <span>{project.duration}</span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <span className="mr-2 font-semibold">Grant:</span>
+                                                    <span>{project.totalGrant}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Project content */}
+                                    <div className="p-6 md:p-8">
+                                        {renderContent(project)}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -302,17 +348,6 @@ export default function EUProjectsPage() {
                     )}
                 </div>
             </main>
-
-            {/* Project modal */}
-            <ProjectModal
-                project={selectedProject}
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                onNext={handleNextProject}
-                onPrevious={handlePreviousProject}
-                hasNext={currentProjectIndex < filteredProjects.length - 1}
-                hasPrevious={currentProjectIndex > 0}
-            />
 
             <Footer />
         </div>
