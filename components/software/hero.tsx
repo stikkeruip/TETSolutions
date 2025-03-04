@@ -26,7 +26,7 @@ export default function SoftwareHero() {
                     />
                 </div>
                 {/* Overlay after (will be on top of the image) */}
-                <div className="absolute inset-0 bg-[#013d60] opacity-30"></div>
+                <div className="absolute inset-0 bg-[#013d60] opacity-45"></div>
             </div>
 
             {/* Content overlay */}
