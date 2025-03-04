@@ -43,7 +43,7 @@ export default function Services() {
                           alt={service.name}
                           className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-[#013d60] bg-opacity-75 transition-opacity group-hover:bg-opacity-60"></div>
+                      <div className="absolute inset-0 bg-[#013d60] bg-opacity-75 transition-opacity group-hover:bg-opacity-45"></div>
                     </div>
 
                     {/* Content positioned over the background */}
@@ -55,16 +55,6 @@ export default function Services() {
                         <p className="text-lg leading-6 font-medium text-white">{service.name}</p>
                       </dt>
                       <dd className="mt-2 text-base text-gray-300">{service.description}</dd>
-
-                      {/* Optional: Add a "Learn More" link */}
-                      <div className="mt-4">
-                        <a
-                            href="#"
-                            className="text-sm font-medium text-[#9A7E43] hover:text-white transition-colors"
-                        >
-                          Learn more →
-                        </a>
-                      </div>
                     </div>
                   </div>
               ))}
