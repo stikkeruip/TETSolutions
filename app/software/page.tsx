@@ -9,7 +9,7 @@ import Contact from "@/components/common/contact"
 
 export default function SoftwarePage() {
     return (
-        <div className="min-h-screen flex flex-col bg-[#001e2e] text-white">
+        <div className="min-h-screen flex flex-col bg-[#013d60] text-white">
             {/* Combined header section with shared background */}
             <div className="relative">
                 <div className="relative z-10">

@@ -80,7 +80,7 @@ export default function NewsPhotoGallery({ images, alt }: NewsPhotoGalleryProps)
                 {/* "View more" tile */}
                 {hasMoreImages && (
                     <div
-                        className="relative aspect-video rounded-md overflow-hidden cursor-pointer bg-[#001e2e]"
+                        className="relative aspect-video rounded-md overflow-hidden cursor-pointer bg-[#013d60]"
                         onClick={() => openLightbox(maxPreviewImages - 1)}
                     >
                         <img
@@ -165,7 +165,7 @@ export default function NewsPhotoGallery({ images, alt }: NewsPhotoGalleryProps)
                                     setLightboxIndex(index)
                                 }}
                                 className={`w-16 h-12 flex-shrink-0 rounded overflow-hidden ${
-                                    index === lightboxIndex ? 'ring-2 ring-[#745e30]' : 'opacity-60 hover:opacity-100'
+                                    index === lightboxIndex ? 'ring-2 ring-[#9A7E43]' : 'opacity-60 hover:opacity-100'
                                 }`}
                             >
                                 <img

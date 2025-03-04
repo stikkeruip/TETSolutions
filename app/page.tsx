@@ -8,11 +8,11 @@ import Contact from "@/components/common/contact"
 
 export default function Home() {
     return (
-        <div className="min-h-screen flex flex-col bg-[#001e2e] text-white">
+        <div className="min-h-screen flex flex-col bg-[#013d60] text-white">
             {/* Combined header section with shared background */}
             <div className="relative">
                 <div className="absolute inset-0 z-0">
-                    <div className="bg-[#001e2e] opacity-80 absolute inset-0"></div>
+                    <div className="bg-[#013d60] opacity-80 absolute inset-0"></div>
                     <div className="h-full w-full overflow-hidden">
                         <img
                             src="/images/home/hero-background.jpg"

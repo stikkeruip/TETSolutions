@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #001e2e;
+  --primary-color: #013d60;
   --secondary-color: #f1e5d1;
-  --accent-color: #745e30;
+  --accent-color: #9A7E43;
 }
 
 body {

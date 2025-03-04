@@ -45,7 +45,7 @@ export default function SoftwareApproach() {
     ]
 
     return (
-        <div className="py-16 bg-[#001e2e] relative" id="development-approach">
+        <div className="py-16 bg-[#013d60] relative" id="development-approach">
             {/* Background pattern overlay */}
             <div className="absolute inset-0 opacity-15">
                 <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -61,7 +61,7 @@ export default function SoftwareApproach() {
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Process
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
@@ -78,7 +78,7 @@ export default function SoftwareApproach() {
                 }`}>
                     <div className="relative">
                         {/* Timeline line - starts at the top of the first icon and goes to the bottom */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#745e30] to-[#001e2e] opacity-50" style={{ top: "36px", height: "calc(100% - 36px)" }}></div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#9A7E43] to-[#013d60] opacity-50" style={{ top: "36px", height: "calc(100% - 36px)" }}></div>
 
                         {/* Timeline items */}
                         <div className="space-y-20">
@@ -91,7 +91,7 @@ export default function SoftwareApproach() {
                                 >
                                     {/* Content side */}
                                     <div className={`w-5/12 px-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                                        <h3 className="text-xl font-bold text-[#745e30] mb-2">{step.title}</h3>
+                                        <h3 className="text-xl font-bold text-[#9A7E43] mb-2">{step.title}</h3>
                                         <p className="text-gray-300">{step.description}</p>
                                     </div>
 
@@ -99,7 +99,7 @@ export default function SoftwareApproach() {
                                     <div className="w-2/12 flex justify-center">
                                         <div className="relative">
                                             <div
-                                                className="w-12 h-12 rounded-full bg-[#001e2e] border-2 border-[#745e30] flex items-center justify-center z-10 transition-transform duration-300 hover:scale-110 cursor-pointer"
+                                                className="w-12 h-12 rounded-full bg-[#013d60] border-2 border-[#9A7E43] flex items-center justify-center z-10 transition-transform duration-300 hover:scale-110 cursor-pointer"
                                                 onClick={() => setActiveStep(index)}
                                             >
                                                 <step.icon className="h-6 w-6 text-white" />
@@ -108,7 +108,7 @@ export default function SoftwareApproach() {
 
                                             {/* Number indicator positioned on the opposite side of the content */}
                                             <div
-                                                className={`absolute w-6 h-6 rounded-full bg-[#745e30] flex items-center justify-center text-xs font-bold text-white ${
+                                                className={`absolute w-6 h-6 rounded-full bg-[#9A7E43] flex items-center justify-center text-xs font-bold text-white ${
                                                     index % 2 === 0
                                                         ? 'left-full ml-2' // Right side (opposite of text)
                                                         : 'right-full mr-2' // Left side (opposite of text)
@@ -135,8 +135,8 @@ export default function SoftwareApproach() {
                         {developmentSteps.map((step, index) => (
                             <div
                                 key={index}
-                                className={`relative bg-gradient-to-r from-[#0c2b3d] to-[#001e2e] rounded-lg overflow-hidden transition-all duration-300 ${
-                                    activeStep === index ? 'shadow-lg border-l-4 border-[#745e30]' : 'shadow border-l-4 border-transparent'
+                                className={`relative bg-gradient-to-r from-[#0c2b3d] to-[#013d60] rounded-lg overflow-hidden transition-all duration-300 ${
+                                    activeStep === index ? 'shadow-lg border-l-4 border-[#9A7E43]' : 'shadow border-l-4 border-transparent'
                                 }`}
                             >
                                 <div
@@ -145,27 +145,27 @@ export default function SoftwareApproach() {
                                 >
                                     <div className="relative flex-shrink-0">
                                         <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                                            activeStep === index ? 'bg-[#745e30]' : 'bg-[#0c2b3d]'
+                                            activeStep === index ? 'bg-[#9A7E43]' : 'bg-[#0c2b3d]'
                                         }`}>
                                             <step.icon className={`h-5 w-5 ${
-                                                activeStep === index ? 'text-white' : 'text-[#745e30]'
+                                                activeStep === index ? 'text-white' : 'text-[#9A7E43]'
                                             }`} />
                                         </div>
-                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#0c2b3d] rounded-full flex items-center justify-center text-xs font-medium border border-[#745e30] text-white">
+                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#0c2b3d] rounded-full flex items-center justify-center text-xs font-medium border border-[#9A7E43] text-white">
                                             {index + 1}
                                         </div>
                                     </div>
 
                                     <div className="ml-4 flex-grow">
                                         <h3 className={`text-lg font-medium transition-colors duration-300 ${
-                                            activeStep === index ? 'text-[#745e30]' : 'text-white'
+                                            activeStep === index ? 'text-[#9A7E43]' : 'text-white'
                                         }`}>
                                             {step.title}
                                         </h3>
                                     </div>
 
                                     <div className="ml-auto">
-                                        <div className={`w-6 h-6 flex items-center justify-center text-lg text-[#745e30] transition-transform duration-300 ${
+                                        <div className={`w-6 h-6 flex items-center justify-center text-lg text-[#9A7E43] transition-transform duration-300 ${
                                             activeStep === index ? 'transform rotate-180' : ''
                                         }`}>
                                             {activeStep === index ? '−' : '+'}
@@ -192,7 +192,7 @@ export default function SoftwareApproach() {
                 }`}>
                     <a
                         href="#featured-software-projects"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-transparent hover:bg-[#745e30] transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-transparent hover:bg-[#9A7E43] transition-colors"
                     >
                         See Our Development in Action
                     </a>

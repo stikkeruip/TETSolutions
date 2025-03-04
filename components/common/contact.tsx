@@ -55,7 +55,7 @@ export default function Contact({
     }
 
     return (
-        <div className="py-16 bg-[#001e2e] relative overflow-hidden" id="contact-form">
+        <div className="py-16 bg-[#013d60] relative overflow-hidden" id="contact-form">
             {/* Background pattern overlay */}
             <div className="absolute inset-0 opacity-10">
                 <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -73,7 +73,7 @@ export default function Contact({
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Contact Us
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
@@ -91,7 +91,7 @@ export default function Contact({
                         <div className="p-8">
                             {formStatus.submitted ? (
                                 <div className="text-center p-6">
-                                    <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#745e30] mb-6">
+                                    <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-[#9A7E43] mb-6">
                                         <Check className="h-8 w-8 text-white" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
@@ -100,7 +100,7 @@ export default function Contact({
                                     </p>
                                     <button
                                         onClick={() => setFormStatus({ submitted: false, submitting: false, error: false })}
-                                        className="mt-6 px-4 py-2 border border-[#745e30] text-[#745e30] hover:bg-[#745e30] hover:text-white rounded transition-colors"
+                                        className="mt-6 px-4 py-2 border border-[#9A7E43] text-[#9A7E43] hover:bg-[#9A7E43] hover:text-white rounded transition-colors"
                                     >
                                         Submit Another Inquiry
                                     </button>
@@ -118,7 +118,7 @@ export default function Contact({
                                                 id="name"
                                                 value={formState.name}
                                                 onChange={handleChange}
-                                                className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#001e2e] bg-opacity-50 text-white focus:ring-[#745e30] focus:border-[#745e30]"
+                                                className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#013d60] bg-opacity-50 text-white focus:ring-[#9A7E43] focus:border-[#9A7E43]"
                                                 placeholder="Your name"
                                                 required
                                             />
@@ -133,7 +133,7 @@ export default function Contact({
                                                 id="email"
                                                 value={formState.email}
                                                 onChange={handleChange}
-                                                className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#001e2e] bg-opacity-50 text-white focus:ring-[#745e30] focus:border-[#745e30]"
+                                                className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#013d60] bg-opacity-50 text-white focus:ring-[#9A7E43] focus:border-[#9A7E43]"
                                                 placeholder="your.email@example.com"
                                                 required
                                             />
@@ -150,7 +150,7 @@ export default function Contact({
                                             id="company"
                                             value={formState.company}
                                             onChange={handleChange}
-                                            className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#001e2e] bg-opacity-50 text-white focus:ring-[#745e30] focus:border-[#745e30]"
+                                            className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#013d60] bg-opacity-50 text-white focus:ring-[#9A7E43] focus:border-[#9A7E43]"
                                             placeholder="Your company"
                                         />
                                     </div>
@@ -165,7 +165,7 @@ export default function Contact({
                                             value={formState.inquiry}
                                             onChange={handleChange}
                                             rows={4}
-                                            className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#001e2e] bg-opacity-50 text-white focus:ring-[#745e30] focus:border-[#745e30]"
+                                            className="mt-1 block w-full border border-gray-700 rounded-md shadow-sm py-2 px-3 bg-[#013d60] bg-opacity-50 text-white focus:ring-[#9A7E43] focus:border-[#9A7E43]"
                                             placeholder="Please describe your needs..."
                                             required
                                         />
@@ -180,7 +180,7 @@ export default function Contact({
                                         <button
                                             type="submit"
                                             disabled={formStatus.submitting}
-                                            className={`inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#745e30] hover:bg-[#8b7039] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#745e30] transition-colors ${
+                                            className={`inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#9A7E43] hover:bg-[#8b7039] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9A7E43] transition-colors ${
                                                 formStatus.submitting ? 'opacity-75 cursor-not-allowed' : ''
                                             }`}
                                         >

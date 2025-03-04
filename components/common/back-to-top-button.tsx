@@ -40,7 +40,7 @@ export default function BackToTopButton() {
     return (
         <button
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 bg-[#745e30] text-white p-4 rounded-full shadow-lg z-50 hover:bg-[#001e2e] border border-[#745e30] transition-all duration-300 group"
+            className="fixed bottom-6 right-6 bg-[#9A7E43] text-white p-4 rounded-full shadow-lg z-50 hover:bg-[#013d60] border border-[#9A7E43] transition-all duration-300 group"
             aria-label="Back to top"
         >
             {/* Circular progress */}

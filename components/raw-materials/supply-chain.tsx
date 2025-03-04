@@ -32,7 +32,7 @@ export default function SupplyChainExcellence() {
     ]
 
     return (
-        <div className="py-16 bg-[#001e2e]" id="supply-chain-excellence">
+        <div className="py-16 bg-[#013d60]" id="supply-chain-excellence">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                     {/* Left side: Content */}
@@ -40,7 +40,7 @@ export default function SupplyChainExcellence() {
                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     }`}>
                         <div>
-                            <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                            <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                                 Our Process
                             </h2>
                             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
@@ -66,7 +66,7 @@ export default function SupplyChainExcellence() {
                             <div className="mt-8">
                                 <a
                                     href="/contact"
-                                    className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-opacity-80 transition-colors"
+                                    className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-opacity-80 transition-colors"
                                 >
                                     Discuss Your Supply Chain Needs
                                 </a>
@@ -85,7 +85,7 @@ export default function SupplyChainExcellence() {
                                 alt="Supply chain and logistics"
                                 className="w-full h-64 object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#001e2e] via-transparent to-transparent opacity-60"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#013d60] via-transparent to-transparent opacity-60"></div>
                         </div>
 
                         {/* Stats grid */}
@@ -93,7 +93,7 @@ export default function SupplyChainExcellence() {
                             {stats.map((stat, index) => (
                                 <div
                                     key={index}
-                                    className={`bg-[#0c2b3d] p-6 rounded-lg shadow-lg border border-[#745e30] border-opacity-30 hover:border-opacity-100 transition-all duration-300 transform hover:-translate-y-1 ${
+                                    className={`bg-[#0c2b3d] p-6 rounded-lg shadow-lg border border-[#9A7E43] border-opacity-30 hover:border-opacity-100 transition-all duration-300 transform hover:-translate-y-1 ${
                                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                     }`}
                                     style={{
@@ -101,12 +101,12 @@ export default function SupplyChainExcellence() {
                                     }}
                                 >
                                     <div className="flex items-center justify-center mb-4">
-                                        <div className="w-12 h-12 bg-[#745e30] rounded-full flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-[#9A7E43] rounded-full flex items-center justify-center">
                                             <stat.icon className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
                                     <div className="text-center">
-                                        <p className="text-2xl font-bold text-[#745e30]">{stat.value}</p>
+                                        <p className="text-2xl font-bold text-[#9A7E43]">{stat.value}</p>
                                         <p className="text-sm text-gray-300 mt-1">{stat.label}</p>
                                     </div>
                                 </div>

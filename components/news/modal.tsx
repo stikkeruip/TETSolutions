@@ -90,7 +90,7 @@ export default function NewsModal({
         }
 
         return (
-            <div className="prose max-w-none text-[#001e2e]">
+            <div className="prose max-w-none text-[#013d60]">
                 <div dangerouslySetInnerHTML={{ __html: content }} />
 
                 {/* Inject the actual components after the content is rendered */}
@@ -128,7 +128,7 @@ export default function NewsModal({
                 {/* Close button - fixed position */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-20 bg-white rounded-full p-1 shadow-lg hover:bg-[#745e30] hover:text-white transition-colors"
+                    className="absolute top-4 right-4 z-20 bg-white rounded-full p-1 shadow-lg hover:bg-[#9A7E43] hover:text-white transition-colors"
                     aria-label="Close article"
                 >
                     <X size={24} />
@@ -146,10 +146,10 @@ export default function NewsModal({
                             alt={article.title}
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#001e2e] to-transparent opacity-70"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#013d60] to-transparent opacity-70"></div>
 
                         {/* Category tag */}
-                        <div className="absolute top-4 left-4 bg-[#745e30] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        <div className="absolute top-4 left-4 bg-[#9A7E43] text-white text-xs font-semibold px-3 py-1 rounded-full">
                             {article.category}
                         </div>
 
@@ -182,7 +182,7 @@ export default function NewsModal({
                         disabled={!hasPrevious}
                         className={`flex items-center text-sm font-medium px-4 py-2 rounded-md transition-colors ${
                             hasPrevious
-                                ? "text-[#001e2e] hover:bg-[#f1e5d1] hover:text-[#745e30]"
+                                ? "text-[#013d60] hover:bg-[#f1e5d1] hover:text-[#9A7E43]"
                                 : "text-gray-400 cursor-not-allowed"
                         }`}
                     >
@@ -195,7 +195,7 @@ export default function NewsModal({
                         disabled={!hasNext}
                         className={`flex items-center text-sm font-medium px-4 py-2 rounded-md transition-colors ${
                             hasNext
-                                ? "text-[#001e2e] hover:bg-[#f1e5d1] hover:text-[#745e30]"
+                                ? "text-[#013d60] hover:bg-[#f1e5d1] hover:text-[#9A7E43]"
                                 : "text-gray-400 cursor-not-allowed"
                         }`}
                     >

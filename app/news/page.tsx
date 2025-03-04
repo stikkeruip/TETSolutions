@@ -119,7 +119,7 @@ export default function NewsPage() {
     }, [])
 
     return (
-        <div className="min-h-screen flex flex-col bg-[#001e2e] text-white">
+        <div className="min-h-screen flex flex-col bg-[#013d60] text-white">
             {/* Header */}
             <div className="relative">
                 <div className="absolute inset-0 z-0">
@@ -131,7 +131,7 @@ export default function NewsPage() {
                             style={{ objectPosition: '50% 50%' }}
                         />
                     </div>
-                    <div className="absolute inset-0 bg-[#001e2e] opacity-80"></div>
+                    <div className="absolute inset-0 bg-[#013d60] opacity-80"></div>
                 </div>
 
                 <div className="relative z-10">
@@ -145,7 +145,7 @@ export default function NewsPage() {
                             }`}>
                                 <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
                                     <span className="block">Latest News &</span>{" "}
-                                    <span className="block text-[#745e30]">Company Updates</span>
+                                    <span className="block text-[#9A7E43]">Company Updates</span>
                                 </h1>
                                 <p className="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                                     Stay informed about TET's latest projects, innovations, and industry insights
@@ -157,7 +157,7 @@ export default function NewsPage() {
             </div>
 
             {/* Main content section - Now in dark blue */}
-            <main className="flex-grow bg-[#001e2e]">
+            <main className="flex-grow bg-[#013d60]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Search and filter bar */}
                     <div className={`bg-white rounded-lg shadow-md p-4 mb-8 transition-all duration-700 ease-out ${
@@ -171,20 +171,20 @@ export default function NewsPage() {
                                     placeholder="Search articles..."
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2 border border-[#f1e5d1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#745e30] focus:border-transparent"
+                                    className="w-full pl-10 pr-4 py-2 border border-[#f1e5d1] rounded-md focus:outline-none focus:ring-2 focus:ring-[#9A7E43] focus:border-transparent"
                                 />
                                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                             </div>
 
                             {/* Category filter */}
                             <div className="w-full md:w-1/2 flex items-center gap-2 flex-wrap">
-                                <span className="text-[#001e2e] font-medium">Filter by:</span>
+                                <span className="text-[#013d60] font-medium">Filter by:</span>
                                 <div className="flex flex-wrap gap-2">
                                     <button
                                         className={`px-3 py-1 text-sm rounded-full transition-colors ${
                                             selectedCategory === null
-                                                ? 'bg-[#745e30] text-white'
-                                                : 'bg-gray-200 text-[#001e2e] hover:bg-gray-300'
+                                                ? 'bg-[#9A7E43] text-white'
+                                                : 'bg-gray-200 text-[#013d60] hover:bg-gray-300'
                                         }`}
                                         onClick={() => setSelectedCategory(null)}
                                     >
@@ -196,8 +196,8 @@ export default function NewsPage() {
                                             key={category}
                                             className={`px-3 py-1 text-sm rounded-full transition-colors ${
                                                 selectedCategory === category
-                                                    ? 'bg-[#745e30] text-white'
-                                                    : 'bg-gray-200 text-[#001e2e] hover:bg-gray-300'
+                                                    ? 'bg-[#9A7E43] text-white'
+                                                    : 'bg-gray-200 text-[#013d60] hover:bg-gray-300'
                                             }`}
                                             onClick={() => setSelectedCategory(category)}
                                         >
@@ -242,7 +242,7 @@ export default function NewsPage() {
                         </div>
                     ) : (
                         <div className="text-center py-16 bg-white bg-opacity-5 rounded-lg backdrop-blur-sm">
-                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#001e2e] text-white mb-4">
+                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#013d60] text-white mb-4">
                                 <Filter size={24} />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-2">No articles found</h3>
@@ -254,7 +254,7 @@ export default function NewsPage() {
                                     setSearchTerm("")
                                     setSelectedCategory(null)
                                 }}
-                                className="mt-4 px-4 py-2 bg-[#745e30] text-white rounded-md hover:bg-opacity-90 transition-colors"
+                                className="mt-4 px-4 py-2 bg-[#9A7E43] text-white rounded-md hover:bg-opacity-90 transition-colors"
                             >
                                 Reset filters
                             </button>

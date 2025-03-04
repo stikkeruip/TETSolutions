@@ -55,13 +55,13 @@ export default function SoftwareServices() {
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Expertise
                     </h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#001e2e] sm:text-4xl">
+                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#013d60] sm:text-4xl">
                         Software Solutions
                     </p>
-                    <p className="mt-4 max-w-2xl text-xl text-[#001e2e] lg:mx-auto">
+                    <p className="mt-4 max-w-2xl text-xl text-[#013d60] lg:mx-auto">
                         TET specializes in developing smart, scalable, and secure software solutions tailored to meet diverse business needs.
                     </p>
                 </div>
@@ -79,12 +79,12 @@ export default function SoftwareServices() {
                                 }}
                             >
                                 <div className="flex items-center mb-4">
-                                    <div className="bg-[#745e30] p-3 rounded-full mr-4">
+                                    <div className="bg-[#9A7E43] p-3 rounded-full mr-4">
                                         <service.icon className="h-6 w-6 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-[#001e2e]">{service.title}</h3>
+                                    <h3 className="text-xl font-bold text-[#013d60]">{service.title}</h3>
                                 </div>
-                                <p className="text-[#001e2e] text-opacity-80">{service.description}</p>
+                                <p className="text-[#013d60] text-opacity-80">{service.description}</p>
                             </div>
                         ))}
                     </div>
@@ -95,7 +95,7 @@ export default function SoftwareServices() {
                 }`}>
                     <a
                         href="#featured-software-projects"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-[#001e2e] hover:border-[#001e2e] transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] hover:border-[#013d60] transition-colors"
                     >
                         View Our Projects
                     </a>

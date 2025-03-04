@@ -24,7 +24,7 @@ export default function Hero() {
                 >
                   <span className="block">Empowering Businesses with</span>{" "}
                   <span
-                      className={`block text-[#745e30] xl:inline transition-all duration-700 ease-out delay-300 ${
+                      className={`block text-[#9A7E43] xl:inline transition-all duration-700 ease-out delay-300 ${
                           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                       }`}
                   >
@@ -46,7 +46,7 @@ export default function Hero() {
                   <div className="rounded-md shadow">
                     <Link
                         href="#"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-[#f1e5d1] hover:text-[#001e2e] md:py-4 md:text-lg md:px-10 transition-colors"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#f1e5d1] hover:text-[#013d60] md:py-4 md:text-lg md:px-10 transition-colors"
                     >
                       Placeholder
                     </Link>
@@ -54,7 +54,7 @@ export default function Hero() {
                   <div className="mt-3 sm:mt-0 sm:ml-3">
                     <Link
                         href="/contact"
-                        className="w-full flex items-center justify-center px-8 py-3 border border-[#745e30] text-base font-medium rounded-md text-[#f1e5d1] bg-transparent hover:bg-[#745e30] md:py-4 md:text-lg md:px-10 transition-colors"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-[#f1e5d1] bg-transparent hover:bg-[#9A7E43] md:py-4 md:text-lg md:px-10 transition-colors"
                     >
                       Contact Us
                     </Link>

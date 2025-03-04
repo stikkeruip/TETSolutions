@@ -23,8 +23,8 @@ export default function CategoryShowcase({
                                              description,
                                              items,
                                              bgColor = "#f1e5d1",
-                                             textColor = "#001e2e",
-                                             accentColor = "#745e30"
+                                             textColor = "#013d60",
+                                             accentColor = "#9A7E43"
                                          }: CategoryShowcaseProps) {
     const [isLoaded, setIsLoaded] = useState(false)
     const [activeItem, setActiveItem] = useState(0)

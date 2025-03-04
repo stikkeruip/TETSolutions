@@ -95,13 +95,13 @@ export default function FeaturedSoftwareProjects() {
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Portfolio
                     </h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#001e2e] sm:text-4xl">
+                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#013d60] sm:text-4xl">
                         Featured Software Projects
                     </p>
-                    <p className="mt-4 max-w-2xl text-xl text-[#001e2e] lg:mx-auto">
+                    <p className="mt-4 max-w-2xl text-xl text-[#013d60] lg:mx-auto">
                         Explore our innovative software solutions designed to enhance business efficiency and connectivity.
                     </p>
                 </div>
@@ -130,7 +130,7 @@ export default function FeaturedSoftwareProjects() {
                                         alt={project.title}
                                         className="w-full h-full object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#001e2e] via-transparent to-transparent opacity-60"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#013d60] via-transparent to-transparent opacity-60"></div>
                                 </div>
                             ))}
                         </div>
@@ -160,14 +160,14 @@ export default function FeaturedSoftwareProjects() {
                     {/* Navigation buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 top-1/3 -translate-y-1/2 bg-[#001e2e] bg-opacity-60 hover:bg-opacity-80 text-white p-2 rounded-full transition-colors z-10"
+                        className="absolute left-2 top-1/3 -translate-y-1/2 bg-[#013d60] bg-opacity-60 hover:bg-opacity-80 text-white p-2 rounded-full transition-colors z-10"
                         aria-label="Previous project"
                     >
                         <ChevronLeft size={24} />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 top-1/3 -translate-y-1/2 bg-[#001e2e] bg-opacity-60 hover:bg-opacity-80 text-white p-2 rounded-full transition-colors z-10"
+                        className="absolute right-2 top-1/3 -translate-y-1/2 bg-[#013d60] bg-opacity-60 hover:bg-opacity-80 text-white p-2 rounded-full transition-colors z-10"
                         aria-label="Next project"
                     >
                         <ChevronRight size={24} />
@@ -181,8 +181,8 @@ export default function FeaturedSoftwareProjects() {
                                 onClick={() => goToSlide(index)}
                                 className={`w-3 h-3 rounded-full transition-colors ${
                                     index === currentIndex
-                                        ? "bg-[#745e30]"
-                                        : "bg-[#001e2e] bg-opacity-30 hover:bg-opacity-50"
+                                        ? "bg-[#9A7E43]"
+                                        : "bg-[#013d60] bg-opacity-30 hover:bg-opacity-50"
                                 }`}
                                 aria-label={`Go to project ${index + 1}`}
                             />
@@ -196,7 +196,7 @@ export default function FeaturedSoftwareProjects() {
                 }`}>
                     <a
                         href="/contact"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-[#001e2e] bg-transparent hover:bg-[#745e30] hover:text-white transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-[#013d60] bg-transparent hover:bg-[#9A7E43] hover:text-white transition-colors"
                     >
                         Discuss Your Software Requirements
                     </a>

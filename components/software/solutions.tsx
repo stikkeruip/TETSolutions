@@ -51,13 +51,13 @@ export default function SoftwareSolutions() {
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Expertise
                     </h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#001e2e] sm:text-4xl">
+                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#013d60] sm:text-4xl">
                         Key Software Solutions
                     </p>
-                    <p className="mt-4 max-w-2xl text-xl text-[#001e2e] lg:mx-auto">
+                    <p className="mt-4 max-w-2xl text-xl text-[#013d60] lg:mx-auto">
                         Empowering businesses with innovative software to enhance productivity and drive digital transformation.
                     </p>
                 </div>
@@ -83,16 +83,16 @@ export default function SoftwareSolutions() {
                                             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                                         />
                                     </div>
-                                    <div className="absolute inset-0 bg-[#001e2e] opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                                    <div className="absolute inset-0 bg-[#013d60] opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
                                 </div>
 
                                 {/* Content */}
                                 <div className="relative h-full flex flex-col p-6 text-white">
-                                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#745e30] text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#9A7E43] text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                                         <solution.icon className="h-8 w-8" aria-hidden="true" />
                                     </div>
 
-                                    <h3 className="text-xl font-bold mb-4 group-hover:text-[#745e30] transition-colors duration-300">
+                                    <h3 className="text-xl font-bold mb-4 group-hover:text-[#9A7E43] transition-colors duration-300">
                                         {solution.title}
                                     </h3>
 
@@ -112,7 +112,7 @@ export default function SoftwareSolutions() {
                 }`}>
                     <a
                         href="#contact-form"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-[#001e2e] hover:border-[#001e2e] transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] hover:border-[#013d60] transition-colors"
                         onClick={(e) => {
                             e.preventDefault();
                             const contactSection = document.getElementById('contact-form');

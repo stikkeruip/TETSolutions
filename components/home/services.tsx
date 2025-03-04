@@ -23,10 +23,10 @@ const services = [
 
 export default function Services() {
   return (
-      <div className="py-12 bg-[#001e2e]">
+      <div className="py-12 bg-[#013d60]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">Services</h2>
+            <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">Services</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
               Comprehensive Technology Solutions
             </p>
@@ -43,13 +43,13 @@ export default function Services() {
                           alt={service.name}
                           className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-[#001e2e] bg-opacity-75 transition-opacity group-hover:bg-opacity-60"></div>
+                      <div className="absolute inset-0 bg-[#013d60] bg-opacity-75 transition-opacity group-hover:bg-opacity-60"></div>
                     </div>
 
                     {/* Content positioned over the background */}
                     <div className="relative p-6 h-full">
                       <dt>
-                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#745e30] text-white mb-4">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#9A7E43] text-white mb-4">
                           <service.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
                         <p className="text-lg leading-6 font-medium text-white">{service.name}</p>
@@ -60,7 +60,7 @@ export default function Services() {
                       <div className="mt-4">
                         <a
                             href="#"
-                            className="text-sm font-medium text-[#745e30] hover:text-white transition-colors"
+                            className="text-sm font-medium text-[#9A7E43] hover:text-white transition-colors"
                         >
                           Learn more →
                         </a>

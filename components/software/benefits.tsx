@@ -49,7 +49,7 @@ export default function SoftwareBenefits() {
                         className="w-full h-full object-cover"
                     />
                 </div>
-                <div className="absolute inset-0 bg-[#001e2e] opacity-90"></div>
+                <div className="absolute inset-0 bg-[#013d60] opacity-90"></div>
             </div>
 
             {/* Content */}
@@ -57,7 +57,7 @@ export default function SoftwareBenefits() {
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Advantage
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
@@ -74,7 +74,7 @@ export default function SoftwareBenefits() {
                         {benefits.slice(0, 3).map((benefit, index) => (
                             <div
                                 key={benefit.title}
-                                className={`bg-white bg-opacity-5 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-[#745e30] border-opacity-30 hover:border-opacity-100 transform hover:translate-y-[-4px] transition-all duration-300 ${
+                                className={`bg-white bg-opacity-5 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-[#9A7E43] border-opacity-30 hover:border-opacity-100 transform hover:translate-y-[-4px] transition-all duration-300 ${
                                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                 }`}
                                 style={{
@@ -82,7 +82,7 @@ export default function SoftwareBenefits() {
                                 }}
                             >
                                 <div className="flex items-center mb-4">
-                                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-[#745e30] text-white">
+                                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-[#9A7E43] text-white">
                                         <benefit.icon className="h-6 w-6" />
                                     </div>
                                     <h3 className="ml-4 text-xl font-bold text-white">{benefit.title}</h3>
@@ -97,7 +97,7 @@ export default function SoftwareBenefits() {
                         {benefits.slice(3, 5).map((benefit, index) => (
                             <div
                                 key={benefit.title}
-                                className={`bg-white bg-opacity-5 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-[#745e30] border-opacity-30 hover:border-opacity-100 transform hover:translate-y-[-4px] transition-all duration-300 ${
+                                className={`bg-white bg-opacity-5 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-[#9A7E43] border-opacity-30 hover:border-opacity-100 transform hover:translate-y-[-4px] transition-all duration-300 ${
                                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                 }`}
                                 style={{
@@ -105,7 +105,7 @@ export default function SoftwareBenefits() {
                                 }}
                             >
                                 <div className="flex items-center mb-4">
-                                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-[#745e30] text-white">
+                                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-[#9A7E43] text-white">
                                         <benefit.icon className="h-6 w-6" />
                                     </div>
                                     <h3 className="ml-4 text-xl font-bold text-white">{benefit.title}</h3>
@@ -121,7 +121,7 @@ export default function SoftwareBenefits() {
                 }`}>
                     <a
                         href="#featured-software-projects"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-opacity-80 transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-opacity-80 transition-colors"
                         onClick={(e) => {
                             e.preventDefault();
                             const projectsSection = document.getElementById('featured-software-projects');

@@ -50,12 +50,12 @@ export default function MaterialsCategories() {
     }, [])
 
     return (
-        <div className="py-16 bg-[#001e2e]" id="materials-categories">
+        <div className="py-16 bg-[#013d60]" id="materials-categories">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Offerings
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
@@ -86,7 +86,7 @@ export default function MaterialsCategories() {
                                         alt={category.name}
                                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                     />
-                                    <div className="absolute inset-0 bg-[#001e2e] opacity-75 group-hover:opacity-90 transition-opacity duration-300"></div>
+                                    <div className="absolute inset-0 bg-[#013d60] opacity-75 group-hover:opacity-90 transition-opacity duration-300"></div>
                                 </div>
 
                                 <div className="relative h-full w-full p-6 flex flex-col justify-center items-center text-center">
@@ -101,7 +101,7 @@ export default function MaterialsCategories() {
                                     </p>
                                 </div>
 
-                                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#745e30] rounded-lg transition-colors duration-300"></div>
+                                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#9A7E43] rounded-lg transition-colors duration-300"></div>
                             </div>
                         ))}
                     </div>
@@ -113,7 +113,7 @@ export default function MaterialsCategories() {
                 }`}>
                     <a
                         href="#contact-form"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-transparent hover:bg-[#745e30] hover:text-white transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-transparent hover:bg-[#9A7E43] hover:text-white transition-colors"
                         onClick={(e) => {
                             e.preventDefault();
                             const contactSection = document.getElementById('contact-form');

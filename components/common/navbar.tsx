@@ -37,7 +37,7 @@ export default function Navbar() {
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="px-3 py-2 rounded-full text-sm font-medium text-[#001e2e] hover:bg-[#001e2e] hover:text-white transition-colors"
+                        className="px-3 py-2 rounded-full text-sm font-medium text-[#013d60] hover:bg-[#013d60] hover:text-white transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="inline-flex items-center justify-center p-2 rounded-full text-[#001e2e] hover:bg-[#745e30] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  className="inline-flex items-center justify-center p-2 rounded-full text-[#013d60] hover:bg-[#9A7E43] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? (
@@ -63,12 +63,12 @@ export default function Navbar() {
         {/* Mobile menu */}
         {isOpen && (
             <div className="md:hidden relative z-10">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#001e2e] bg-opacity-90">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#013d60] bg-opacity-90">
                 {navItems.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-3 py-2 rounded-full text-base font-medium text-white hover:bg-[#745e30] hover:text-white transition-colors"
+                        className="block px-3 py-2 rounded-full text-base font-medium text-white hover:bg-[#9A7E43] hover:text-white transition-colors"
                         onClick={() => setIsOpen(false)}
                     >
                       {item.name}

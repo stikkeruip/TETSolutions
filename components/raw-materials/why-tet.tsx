@@ -44,13 +44,13 @@ export default function WhyChooseTETMaterials() {
                 <div className={`lg:text-center mb-12 transition-all duration-700 ease-out ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
-                    <h2 className="text-base text-[#745e30] font-semibold tracking-wide uppercase">
+                    <h2 className="text-base text-[#9A7E43] font-semibold tracking-wide uppercase">
                         Our Strengths
                     </h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#001e2e] sm:text-4xl">
+                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#013d60] sm:text-4xl">
                         Why Choose TET for Raw Materials?
                     </p>
-                    <p className="mt-4 max-w-2xl text-xl text-[#001e2e] lg:mx-auto">
+                    <p className="mt-4 max-w-2xl text-xl text-[#013d60] lg:mx-auto">
                         Partner with TET for reliable, high-quality material sourcing tailored to your business needs.
                     </p>
                 </div>
@@ -69,15 +69,15 @@ export default function WhyChooseTETMaterials() {
                             }}
                         >
                             {/* Border that appears on hover */}
-                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#745e30] rounded-lg transition-colors duration-300"></div>
+                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#9A7E43] rounded-lg transition-colors duration-300"></div>
 
                             <div className="relative flex items-start">
                                 <div className="flex-shrink-0">
-                                    <CheckCircle className="h-6 w-6 text-[#745e30]" />
+                                    <CheckCircle className="h-6 w-6 text-[#9A7E43]" />
                                 </div>
                                 <div className="ml-4">
-                                    <h3 className="text-lg font-medium text-[#001e2e]">{reason.title}</h3>
-                                    <p className="mt-2 text-[#001e2e] text-opacity-80">{reason.description}</p>
+                                    <h3 className="text-lg font-medium text-[#013d60]">{reason.title}</h3>
+                                    <p className="mt-2 text-[#013d60] text-opacity-80">{reason.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ export default function WhyChooseTETMaterials() {
                 }`}>
                     <a
                         href="/contact"
-                        className="inline-flex items-center px-6 py-3 border border-[#745e30] text-base font-medium rounded-md text-white bg-[#745e30] hover:bg-[#001e2e] hover:border-[#001e2e] transition-colors"
+                        className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] hover:border-[#013d60] transition-colors"
                     >
                         Contact Our Materials Team
                     </a>
