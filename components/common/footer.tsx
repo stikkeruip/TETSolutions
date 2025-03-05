@@ -42,7 +42,7 @@ export default function Footer() {
             <p>Amman, Jordan</p>
             <p>info@tetsolutions.com</p>
             <div className="mt-4 flex space-x-4">
-              <a href="#" className="text-[#013d60] hover:text-[#9A7E43]">
+              <a href="https://www.facebook.com/profile.php?id=61573699178756" className="text-[#013d60] hover:text-[#9A7E43]">
                 <Facebook size={20} />
               </a>
               <a href="#" className="text-[#013d60] hover:text-[#9A7E43]">
