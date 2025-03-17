@@ -1,41 +1,41 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { CheckCircle } from "lucide-react"
+import React, { useEffect, useState } from "react";
+import { CheckCircle } from "lucide-react";
 
-export default function WhyChooseTETMaterials() {
-    const [isLoaded, setIsLoaded] = useState(false)
+const WhyChooseTETMaterials = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        setIsLoaded(true)
-    }, [])
+        setIsLoaded(true);
+    }, []);
 
     const reasons = [
         {
-            title: "Quality Assurance",
-            description: "Rigorous quality control and testing to ensure all materials meet industry standards."
+            title: "Exclusive Partnerships",
+            description: "Authorized distributor for premium European fragrance and flavor manufacturers."
         },
         {
-            title: "Global Sourcing Network",
-            description: "Established relationships with suppliers worldwide to secure optimal materials."
-        },
-        {
-            title: "Cost Efficiency",
-            description: "Strategic procurement approaches to maximize value while maintaining quality."
-        },
-        {
-            title: "Timely Delivery",
-            description: "Reliable logistics management to ensure materials arrive when needed."
+            title: "European Standard Compliance",
+            description: "All products meet stringent European regulations for quality and safety."
         },
         {
             title: "Technical Expertise",
-            description: "In-depth knowledge of material properties and applications across industries."
+            description: "Specialized knowledge in fragrance applications, cosmetic formulations, and detergent chemistry."
         },
         {
-            title: "Customized Solutions",
-            description: "Tailored sourcing strategies based on your specific requirements and applications."
+            title: "Product Authenticity",
+            description: "Direct sourcing from manufacturers ensures genuine products and traceability."
+        },
+        {
+            title: "Comprehensive Product Range",
+            description: "One-stop solution for fragrances, flavors, and specialty chemicals for multiple industries."
+        },
+        {
+            title: "Local Availability",
+            description: "Well-stocked inventory in Jordan ensures timely delivery and reduced lead times."
         }
-    ]
+    ];
 
     return (
         <div className="py-16 bg-[#f1e5d1]" id="why-choose-tet-materials">
@@ -48,10 +48,10 @@ export default function WhyChooseTETMaterials() {
                         Our Strengths
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#013d60] sm:text-4xl">
-                        Why Choose TET for Raw Materials?
+                        Why Choose TET for Premium Materials?
                     </p>
                     <p className="mt-4 max-w-2xl text-xl text-[#013d60] lg:mx-auto">
-                        Partner with TET for reliable, high-quality material sourcing tailored to your business needs.
+                        Partner with TET for reliable access to high-quality ingredients tailored to your manufacturing needs.
                     </p>
                 </div>
 
@@ -89,8 +89,18 @@ export default function WhyChooseTETMaterials() {
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
                     <a
-                        href="/contact"
+                        href="#contact-form"
                         className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] hover:border-[#013d60] transition-colors"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const contactSection = document.getElementById('contact-form');
+                            if (contactSection) {
+                                window.scrollTo({
+                                    top: contactSection.offsetTop,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }}
                     >
                         Contact Our Materials Team
                     </a>
@@ -104,7 +114,7 @@ export default function WhyChooseTETMaterials() {
                     transition-duration: 700ms, 300ms, 300ms;
                     transition-timing-function: ease-out, ease-out, ease-out;
                 }
-                
+
                 /* When loaded, ensure all hover animations are quick and consistent */
                 .reason-card:hover {
                     transition-delay: 0ms !important;
@@ -112,5 +122,7 @@ export default function WhyChooseTETMaterials() {
                 }
             `}</style>
         </div>
-    )
-}
+    );
+};
+
+export default WhyChooseTETMaterials;

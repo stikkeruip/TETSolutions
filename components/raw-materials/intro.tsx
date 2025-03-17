@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 
-export default function RawMaterialsIntro() {
-    const [isLoaded, setIsLoaded] = useState(false)
+const RawMaterialsIntro = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        setIsLoaded(true)
-    }, [])
+        setIsLoaded(true);
+    }, []);
 
     return (
         <div className="py-16 bg-[#f1e5d1]">
@@ -17,7 +17,7 @@ export default function RawMaterialsIntro() {
                         Our Expertise
                     </h2>
                     <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#013d60] sm:text-4xl">
-                        About Our Raw Materials Services
+                        Premium Raw Materials for Cosmetics & Fragrances
                     </p>
                 </div>
 
@@ -28,23 +28,36 @@ export default function RawMaterialsIntro() {
                     }`}>
                         <div className="prose prose-lg text-[#013d60] max-w-none">
                             <p className="mb-4">
-                                <span className="font-bold">TET (Technical Engineers for Technology)</span> leverages its
-                                <span className="text-[#9A7E43] font-semibold"> extensive procurement experience</span> to
-                                source high-quality raw materials for businesses across various sectors.
+                                <span className="font-bold">TET (Technical Engineers for Technology)</span> is a
+                                <span className="text-[#9A7E43] font-semibold"> leading distributor of premium raw materials</span> for
+                                the cosmetics, fragrance, flavor, and detergent manufacturing industries.
                             </p>
                             <p className="mb-4">
-                                With <span className="text-[#9A7E43] font-semibold">established supplier relationships</span> and
-                                rigorous quality control, we ensure that all materials meet
-                                <span className="text-[#9A7E43] font-semibold"> industry standards</span> and client specifications.
+                                As an <span className="text-[#9A7E43] font-semibold">exclusive authorized distributor</span> for
+                                renowned European manufacturers, we provide access to the highest quality fragrances, flavors,
+                                and specialty chemicals that comply with <span className="text-[#9A7E43] font-semibold">European
+                standard regulations</span>.
                             </p>
                             <p className="mb-6">
-                                Our dedicated team works closely with clients to understand their specific requirements,
-                                providing solutions that optimize production processes while maintaining cost-effectiveness.
+                                Our commitment to quality and expertise in sourcing ensures that manufacturers in Jordan and
+                                the broader Middle East region have access to the finest ingredients for their products,
+                                backed by our comprehensive technical support.
                             </p>
                             <div className="mt-8">
-                                <a href="#sourcing-process"
-                                   className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] transition-colors">
-                                    Learn About Our Sourcing Process
+                                <a href="#materials-categories"
+                                   className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] transition-colors"
+                                   onClick={(e) => {
+                                       e.preventDefault();
+                                       const categoriesSection = document.getElementById('materials-categories');
+                                       if (categoriesSection) {
+                                           window.scrollTo({
+                                               top: categoriesSection.offsetTop,
+                                               behavior: 'smooth'
+                                           });
+                                       }
+                                   }}
+                                >
+                                    Explore Our Product Range
                                 </a>
                             </div>
                         </div>
@@ -56,8 +69,8 @@ export default function RawMaterialsIntro() {
                     }`}>
                         <div className="relative h-64 sm:h-72 md:h-96 lg:h-full rounded-lg overflow-hidden shadow-xl">
                             <img
-                                src="/images/raw-materials/quality-inspection.jpg"
-                                alt="Materials quality inspection process"
+                                src="/images/raw-materials/fragrance-lab.jpg"
+                                alt="Fragrance development laboratory"
                                 className="w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-tr from-[#013d60] via-transparent to-transparent opacity-30"></div>
@@ -66,5 +79,7 @@ export default function RawMaterialsIntro() {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default RawMaterialsIntro;

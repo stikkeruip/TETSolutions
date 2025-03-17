@@ -2,7 +2,7 @@ import Navbar from "@/components/common/navbar"
 import Footer from "@/components/common/footer"
 import RawMaterialsHero from "@/components/raw-materials/hero"
 import RawMaterialsIntro from "@/components/raw-materials/intro"
-import MaterialsCategories from "@/components/raw-materials/categories"
+import MaterialCategories from "@/components/raw-materials/categories"
 import WhyChooseTETMaterials from "@/components/raw-materials/why-tet"
 import SupplyChainExcellence from "@/components/raw-materials/supply-chain"
 import Contact from "@/components/common/contact"
@@ -20,13 +20,13 @@ export default function RawMaterialsPage() {
 
             <main className="flex-grow">
                 <RawMaterialsIntro />
-                <MaterialsCategories />
+                <MaterialCategories />
                 <WhyChooseTETMaterials />
                 <SupplyChainExcellence />
                 {/* Contact Form section - Dark background */}
                 <Contact
                     title="Request Materials Information"
-                    subtitle="Need information about our raw materials or have specific requirements? Contact our materials specialists today."
+                    subtitle="Need information about our fragrances, flavors, or specialty raw materials? Contact our specialists today."
                 />
             </main>
             <Footer />

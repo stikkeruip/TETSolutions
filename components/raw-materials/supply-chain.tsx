@@ -1,35 +1,35 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { TruckIcon, BarChart3Icon, CheckCircleIcon } from "lucide-react"
+import React, { useEffect, useState } from "react";
+import { Truck, Award, BarChart } from "lucide-react";
 
-export default function SupplyChainExcellence() {
-    const [isLoaded, setIsLoaded] = useState(false)
+const SupplyChainExcellence = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        setIsLoaded(true)
-    }, [])
+        setIsLoaded(true);
+    }, []);
 
     const stats = [
         {
-            icon: TruckIcon,
+            icon: Truck,
             value: "20+",
-            label: "Years of procurement experience",
+            label: "Years of supply chain experience",
             delay: 100
         },
         {
-            icon: BarChart3Icon,
-            value: "Global",
-            label: "Network of verified suppliers",
+            icon: Award,
+            value: "Exclusive",
+            label: "European partnerships",
             delay: 200
         },
         {
-            icon: CheckCircleIcon,
+            icon: BarChart,
             value: "100%",
-            label: "Comprehensive quality assurance",
+            label: "Quality assurance standards",
             delay: 300
         }
-    ]
+    ];
 
     return (
         <div className="py-16 bg-[#013d60]" id="supply-chain-excellence">
@@ -44,31 +44,41 @@ export default function SupplyChainExcellence() {
                                 Our Process
                             </h2>
                             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
-                                Supply Chain Excellence
+                                Premium Materials, Premium Quality
                             </p>
                             <p className="mt-4 text-xl text-gray-300">
-                                How TET optimizes material sourcing for businesses
+                                How TET ensures superior fragrances, flavors, and raw materials for our clients
                             </p>
                             <div className="mt-6 text-gray-300 space-y-4">
                                 <p>
-                                    At TET, we understand that reliable raw materials are the foundation of successful
-                                    manufacturing and production processes.
+                                    At TET, we understand that the quality of raw materials directly impacts the excellence of the final product,
+                                    whether it's a luxurious perfume, an effective detergent, or a delightful food flavoring.
                                 </p>
                                 <p>
-                                    Our comprehensive approach to supply chain management ensures consistency, quality,
-                                    and timely delivery for all materials we source.
+                                    Our sourcing process involves direct partnerships with European manufacturers, ensuring authenticity,
+                                    traceability, and compliance with international standards for all our materials.
                                 </p>
                                 <p>
-                                    By leveraging our technical expertise and industry connections, we help businesses
-                                    reduce costs, minimize delays, and maintain production quality.
+                                    By leveraging our technical expertise and exclusive distributor relationships, we help manufacturers
+                                    reduce costs, eliminate counterfeit products, and maintain consistent quality in their production.
                                 </p>
                             </div>
                             <div className="mt-8">
                                 <a
-                                    href="/contact"
+                                    href="#contact-form"
                                     className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-opacity-80 transition-colors"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const contactSection = document.getElementById('contact-form');
+                                        if (contactSection) {
+                                            window.scrollTo({
+                                                top: contactSection.offsetTop,
+                                                behavior: 'smooth'
+                                            });
+                                        }
+                                    }}
                                 >
-                                    Discuss Your Supply Chain Needs
+                                    Discuss Your Ingredient Needs
                                 </a>
                             </div>
                         </div>
@@ -82,7 +92,7 @@ export default function SupplyChainExcellence() {
                         <div className="relative rounded-lg overflow-hidden shadow-xl mb-10">
                             <img
                                 src="/images/raw-materials/supply-chain.jpg"
-                                alt="Supply chain and logistics"
+                                alt="Quality control for raw materials"
                                 className="w-full h-64 object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-br from-[#013d60] via-transparent to-transparent opacity-60"></div>
@@ -116,5 +126,7 @@ export default function SupplyChainExcellence() {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default SupplyChainExcellence;

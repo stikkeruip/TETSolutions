@@ -1,53 +1,70 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import React, { useState, useEffect } from "react";
 
-// Define the categories data
-const categories = [
-    {
-        id: "industrial-metals",
-        name: "Industrial Metals",
-        description: "High-grade aluminum, steel, copper, and specialty alloys sourced for manufacturing applications.",
-        image: "/images/raw-materials/metals.jpg",
-    },
-    {
-        id: "polymers",
-        name: "Polymers & Plastics",
-        description: "Quality thermoplastics and polymers for injection molding and industrial applications.",
-        image: "/images/raw-materials/polymers.jpg",
-    },
-    {
-        id: "electronic",
-        name: "Electronic Components",
-        description: "Precision electronic parts and components for technology manufacturing.",
-        image: "/images/raw-materials/electronic.jpg",
-    },
-    {
-        id: "construction",
-        name: "Construction Materials",
-        description: "Durable building materials meeting international standards for construction projects.",
-        image: "/images/raw-materials/construction.jpg",
-    },
-    {
-        id: "packaging",
-        name: "Packaging Materials",
-        description: "Sustainable and protective packaging solutions for various industries.",
-        image: "/images/raw-materials/packaging.jpg",
-    },
-    {
-        id: "specialized",
-        name: "Specialized Industrial Supplies",
-        description: "Custom-sourced specialized materials for unique industrial applications.",
-        image: "/images/raw-materials/specialized.jpg",
-    },
-]
-
-export default function MaterialsCategories() {
-    const [isLoaded, setIsLoaded] = useState(false)
+const MaterialCategories = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [activeCategory, setActiveCategory] = useState(0);
 
     useEffect(() => {
-        setIsLoaded(true)
-    }, [])
+        setIsLoaded(true);
+    }, []);
+
+    // Materials categories data
+    const categories = [
+        {
+            id: "fragrances",
+            name: "Fragrances",
+            description: "Conventional and natural Fragrances for personal and industrial use, compliant with European standard regulations for Detergent and Cosmetics manufacturing.",
+            partners: ["Technicoflor Fragrances"],
+            websites: ["https://www.technicoflor.fr/en/"],
+            image: "/images/raw-materials/fragrances.jpg",
+        },
+        {
+            id: "flavors",
+            name: "Flavors",
+            description: "Expert in flavors for the food, oral care, pharmaceutical and animal industries.",
+            partners: ["Fontarome Flavors", "Scentium Flavours SL"],
+            websites: ["https://fontarome.fr/", "https://scentium.com/"],
+            image: "/images/raw-materials/flavors.jpg",
+        },
+        {
+            id: "detergent",
+            name: "Detergent Raw Materials",
+            description: "TET operates as one of the main importers and distributors of Detergent raw materials in Jordan, with a comprehensive product range.",
+            products: [
+                "Semi finished Detergent powder 12% active matter",
+                "Sulphonic acid - Linear alkylbenzene sulfonic acid (LABSA)",
+                "Vaseline Super White Petroleum Jelly",
+                "Caustic Soda flakes 99%",
+                "Texapon: Sodium lauryl ether sulfate 70% (SLES)",
+                "Cocoamidopropyl (betaine)",
+                "Coco Diethanolamide",
+                "Monoethylene Glycol (MEG)",
+                "Alcohol",
+                "UPS Glycrine"
+            ],
+            image: "/images/raw-materials/detergent.jpg",
+        },
+        {
+            id: "cosmetics",
+            name: "Beauty and Cosmetics Raw Materials",
+            description: "TET operates as one of the main importers and distributors of Beauty and Cosmetics raw materials in Jordan.",
+            products: [
+                "Lanette O, Lanette 16, Lanette N",
+                "Glyceryl mono stearate (GMS)",
+                "Xanthan gum",
+                "Titanium dioxide",
+                "Phenoxyethanol",
+                "Methyl Propyl Ether",
+                "Methylparaben",
+                "Zinc oxide",
+                "Sodium Salicylate",
+                "ACNIBIO"
+            ],
+            image: "/images/raw-materials/cosmetics.jpg",
+        }
+    ];
 
     return (
         <div className="py-16 bg-[#013d60]" id="materials-categories">
@@ -66,49 +83,103 @@ export default function MaterialsCategories() {
                     </p>
                 </div>
 
-                <div className="mt-10">
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {categories.map((category, index) => (
-                            <div
-                                key={category.id}
-                                className={`category-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 h-64 ${
-                                    isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                                }`}
-                                style={{
-                                    // Only apply delay for the initial load animation
-                                    transitionDelay: isLoaded ? '0ms' : `${150 + index * 75}ms`,
-                                }}
-                            >
-                                {/* Background Image with Overlay */}
-                                <div className="absolute inset-0">
-                                    <img
-                                        src={category.image}
-                                        alt={category.name}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-[#013d60] opacity-75 group-hover:opacity-90 transition-opacity duration-300"></div>
+                <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    {/* Category Navigation - Takes 1/3 width on desktop */}
+                    <div className={`transition-all duration-700 ease-out ${
+                        isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}>
+                        <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg">
+                            {categories.map((category, index) => (
+                                <button
+                                    key={category.id}
+                                    className={`w-full text-left px-6 py-4 border-b border-[#9A7E43] border-opacity-20 last:border-0 transition-colors ${
+                                        activeCategory === index
+                                            ? 'bg-[#9A7E43] bg-opacity-30 text-white'
+                                            : 'text-gray-300 hover:bg-[#9A7E43] hover:bg-opacity-20'
+                                    }`}
+                                    onClick={() => setActiveCategory(index)}
+                                >
+                                    <div className="flex items-center">
+                                        <div className={`w-3 h-3 rounded-full mr-3 ${
+                                            activeCategory === index ? 'bg-[#9A7E43]' : 'bg-gray-500'
+                                        }`}></div>
+                                        <span className="font-medium">{category.name}</span>
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Category Details - Takes 2/3 width on desktop */}
+                    <div className={`lg:col-span-2 transition-all duration-700 ease-out delay-300 ${
+                        isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}>
+                        <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg h-full">
+                            {categories.map((category, index) => (
+                                <div
+                                    key={category.id}
+                                    className={`${activeCategory === index ? 'block' : 'hidden'} h-full`}
+                                >
+                                    <div className="relative h-64 sm:h-80 md:h-96">
+                                        <img
+                                            src={category.image}
+                                            alt={category.name}
+                                            className="w-full h-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#013d60] to-transparent opacity-80"></div>
+                                        <div className="absolute bottom-0 left-0 w-full p-6">
+                                            <h3 className="text-2xl font-bold text-white">{category.name}</h3>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-6">
+                                        <p className="text-gray-300 mb-6">{category.description}</p>
+
+                                        {category.partners && (
+                                            <div className="mb-6">
+                                                <h4 className="text-[#9A7E43] font-semibold mb-2">Exclusive Authorized Distributor For:</h4>
+                                                <ul className="space-y-1">
+                                                    {category.partners.map((partner, i) => (
+                                                        <li key={i} className="text-white flex items-center">
+                                                            <span className="text-[#9A7E43] mr-2">●</span>
+                                                            {partner}
+                                                            {category.websites && category.websites[i] && (
+                                                                <a
+                                                                    href={category.websites[i]}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="ml-2 text-[#9A7E43] text-sm hover:underline"
+                                                                >
+                                                                    (Visit Website)
+                                                                </a>
+                                                            )}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {category.products && (
+                                            <div>
+                                                <h4 className="text-[#9A7E43] font-semibold mb-2">Product Range Includes:</h4>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1">
+                                                    {category.products.map((product, i) => (
+                                                        <div key={i} className="text-white flex items-center">
+                                                            <span className="text-[#9A7E43] mr-2">●</span>
+                                                            <span>{product}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-
-                                <div className="relative h-full w-full p-6 flex flex-col justify-center items-center text-center">
-                                    {/* Title - Always Visible and Centered */}
-                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4 transform transition-transform duration-300 group-hover:translate-y-0">
-                                        {category.name}
-                                    </h3>
-
-                                    {/* Description - Hidden Initially, Revealed on Hover */}
-                                    <p className="text-gray-300 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-96 transition-all duration-300 ease-in-out">
-                                        {category.description}
-                                    </p>
-                                </div>
-
-                                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#9A7E43] rounded-lg transition-colors duration-300"></div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* Call to Action */}
-                <div className={`mt-12 text-center transition-all duration-700 ease-out delay-300 ${
+                <div className={`mt-12 text-center transition-all duration-700 ease-out delay-500 ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
                     <a
@@ -129,21 +200,8 @@ export default function MaterialsCategories() {
                     </a>
                 </div>
             </div>
-
-            {/* Global styles for consistent hover transitions */}
-            <style jsx global>{`
-                .category-card {
-                    transition-property: opacity, transform, box-shadow;
-                    transition-duration: 700ms, 300ms, 300ms;
-                    transition-timing-function: ease-out, ease-out, ease-out;
-                }
-                
-                /* When loaded, ensure all hover animations are quick and consistent */
-                .category-card:hover {
-                    transition-delay: 0ms !important;
-                    transition-duration: 300ms;
-                }
-            `}</style>
         </div>
-    )
-}
+    );
+};
+
+export default MaterialCategories;
