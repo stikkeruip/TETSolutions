@@ -28,23 +28,23 @@ export default function ProcurementIntro() {
                     }`}>
                         <div className="prose prose-lg text-[#013d60] max-w-none">
                             <p className="mb-4">
-                                <span className="font-bold">TET (Technical Engineers for Technology)</span> specializes in
-                                <span className="text-[#9A7E43] font-semibold"> technology procurement</span>, delivering high-quality hardware
-                                and equipment tailored to <span className="text-[#9A7E43] font-semibold">business, training, and industrial needs</span>.
+                                <span className="font-bold">TET (Technical Engineers for Technology)</span> provides
+                                <span className="text-[#9A7E43] font-semibold"> supply chain procurement services</span> for
+                                worldwide customers.
                             </p>
                             <p className="mb-4">
-                                With <span className="text-[#9A7E43] font-semibold">years of experience</span>, we ensure that every procurement
-                                meets global standards and client expectations.
+                                Since inception, our <span className="text-[#9A7E43] font-semibold">highly experienced team</span> strives
+                                to meet our customers' needs by providing <span className="text-[#9A7E43] font-semibold">latest modern
+                                technologies and products</span>, realizing the importance of shortest delivery time and
+                                competitive pricing policy.
                             </p>
                             <p className="mb-6">
-                                Our dedicated team of procurement specialists works closely with clients to understand their
-                                specific requirements, providing solutions that optimize operational efficiency while
-                                maintaining cost-effectiveness.
+                                Your <span className="text-[#9A7E43] font-semibold">reliable partners</span> for supply chain procurement services.
                             </p>
                             <div className="mt-8">
-                                <a href="#procurement-services"
+                                <a href="#procurement-categories"
                                    className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#013d60] transition-colors">
-                                    Learn More About Our Process
+                                    Explore Our Procurement Categories
                                 </a>
                             </div>
                         </div>
