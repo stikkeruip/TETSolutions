@@ -11,7 +11,7 @@ interface Project {
     image: string;
 }
 
-// Define the projects data based on the content from the PowerPoint
+// Define the projects data with the two new projects
 const projects: Project[] = [
     {
         id: "management-system",
@@ -20,10 +20,16 @@ const projects: Project[] = [
         image: "/images/software/management-system.webp",
     },
     {
-        id: "video-conference",
-        title: "Video Conference System",
-        description: "Implemented an advanced video conferencing software to facilitate seamless remote communication, configured for optimal performance in diverse business environments.",
-        image: "/images/software/video-conference.webp",
+        id: "nokia-maintenance",
+        title: "Nokia Mobile Maintenance Management System",
+        description: "Developed for Nokia Mobile dealer in Jordan, this system manages the entire maintenance department's operations, tracking repairs and generating reports compatible with Nokia Mobile branches worldwide.",
+        image: "/images/software/nokia-maintenance.webp",
+    },
+    {
+        id: "industrial-management",
+        title: "Industrial Management System for Arab Carton Factory",
+        description: "This system monitors production stages by receiving electronic orders from sales and overseeing manufacturing processes of carton boxes, also facilitating reports and invoices generation.",
+        image: "/images/software/industrial-management.webp",
     },
     {
         id: "mobile-learning",
@@ -195,8 +201,18 @@ export default function FeaturedSoftwareProjects() {
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
                     <a
-                        href="/contact"
+                        href="#contact-form"
                         className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-[#013d60] bg-transparent hover:bg-[#9A7E43] hover:text-white transition-colors"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const contactSection = document.getElementById('contact-form');
+                            if (contactSection) {
+                                window.scrollTo({
+                                    top: contactSection.offsetTop,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }}
                     >
                         Discuss Your Software Requirements
                     </a>

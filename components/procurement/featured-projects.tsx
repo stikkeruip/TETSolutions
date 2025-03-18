@@ -42,6 +42,18 @@ const projects: Project[] = [
         title: "Laser Engraving Supply and Training",
         description: "Supplied and installed Laser Engraving CNC machines at VTCs in collaboration with JICA, including comprehensive training for teachers on machine operation.",
         image: "/images/procurement/projects/laser-engraving.webp",
+    },
+    {
+        id: "gaza-aid",
+        title: "Emergency Aid for Gaza",
+        description: "Supplied essential food kits and emergency shelter kits to Gaza, providing humanitarian relief during crisis situations through efficient procurement and logistics channels.",
+        image: "/images/procurement/projects/gaza-aid.jpg",
+    },
+    {
+        id: "tafilah-equipment",
+        title: "Modern Garage Equipment for Al Tafilah",
+        description: "Delivered advanced wireless truck lifts and garage equipment to Al Tafilah Municipality, enhancing their maintenance capabilities for municipal vehicle fleets.",
+        image: "/images/procurement/projects/tafilah-equipment.jpg",
     }
 ]
 
