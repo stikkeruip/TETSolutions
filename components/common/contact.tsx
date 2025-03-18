@@ -183,7 +183,7 @@ export default function Contact({
                                                 <>Processing...</>
                                             ) : (
                                                 <>
-                                                    Request a Quote <Send className="ml-2 h-4 w-4" />
+                                                    Request info <Send className="ml-2 h-4 w-4" />
                                                 </>
                                             )}
                                         </button>

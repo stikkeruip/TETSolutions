@@ -22,7 +22,7 @@ const RawMaterialsHero = () => {
                         className={`w-full h-full object-cover transition-transform duration-7000 ease-out ${
                             isLoaded ? 'scale-105' : 'scale-100'
                         }`}
-                        style={{ objectPosition: '50% 30%' }}
+                        style={{ objectPosition: '50% 70%' }}
                     />
                 </div>
                 {/* Overlay after (will be on top of the image) */}
