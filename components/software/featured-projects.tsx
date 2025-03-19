@@ -17,25 +17,25 @@ const projects: Project[] = [
         id: "management-system",
         title: "Management System Software",
         description: "Developed a customized management system to streamline workflow automation and enhance productivity for businesses across various sectors.",
-        image: "/images/software/management-system.webp",
+        image: "/images/software/management-system.jpg",
     },
     {
         id: "nokia-maintenance",
         title: "Nokia Mobile Maintenance Management System",
         description: "Developed for Nokia Mobile dealer in Jordan, this system manages the entire maintenance department's operations, tracking repairs and generating reports compatible with Nokia Mobile branches worldwide.",
-        image: "/images/software/nokia-maintenance.webp",
+        image: "/images/software/nokia-maintenance.jpg",
     },
     {
         id: "industrial-management",
         title: "Industrial Management System for Arab Carton Factory",
         description: "This system monitors production stages by receiving electronic orders from sales and overseeing manufacturing processes of carton boxes, also facilitating reports and invoices generation.",
-        image: "/images/software/industrial-management.webp",
+        image: "/images/software/industrial-management.jpg",
     },
     {
         id: "mobile-learning",
         title: "Mobile Learning Application",
         description: "Created an interactive mobile learning platform for educational institutions to provide virtual training programs, supporting distance learning initiatives.",
-        image: "/images/software/mobile-learning.webp",
+        image: "/images/software/mobile-learning.jpg",
     }
 ]
 
