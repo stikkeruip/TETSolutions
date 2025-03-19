@@ -11,6 +11,7 @@ const navItems = [
   { name: "Raw Materials", href: "/raw-materials" },
   { name: "EU Projects", href: "/eu-projects" },
   { name: "News", href: "/news" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export default function Navbar() {
