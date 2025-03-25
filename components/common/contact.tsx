@@ -60,10 +60,10 @@ export default function SimplifiedContact({
                             Our team is ready to assist you with any inquiries or requirements you may have.
                         </p>
                         <a
-                            href="mailto:info@tetsolutions.com"
+                            href="mailto:Ahmad.b@TETsolutions.com"
                             className="inline-flex items-center px-6 py-3 border border-[#9A7E43] text-base font-medium rounded-md text-white bg-[#9A7E43] hover:bg-[#8b7039] transition-colors"
                         >
-                            Email info@tetsolutions.com
+                            Send us a message!
                             <Mail className="ml-2 h-5 w-5" />
                         </a>
                     </div>

@@ -78,7 +78,7 @@ export default function ContactPage() {
                                     </div>
                                     <h3 className="text-xl font-bold text-[#013d60]">Call Us</h3>
                                 </div>
-                                <p className="text-[#013d60]">+962 6 461 6150</p>
+                                <p className="text-[#013d60]">+962 6 412 9711</p>
                             </div>
 
                             {/* Email */}
@@ -90,8 +90,8 @@ export default function ContactPage() {
                                     <h3 className="text-xl font-bold text-[#013d60]">Email Us</h3>
                                 </div>
                                 <p className="text-[#013d60]">
-                                    <a href="mailto:info@tetsolutions.com" className="hover:text-[#9A7E43] transition-colors">
-                                        info@tetsolutions.com
+                                    <a href="mailto:Ahmad.b@TETsolutions.com" className="hover:text-[#9A7E43] transition-colors">
+                                        Send us a message!
                                     </a>
                                 </p>
                             </div>
@@ -110,13 +110,6 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
-
-                {/* Contact Form Section - Using the existing component */}
-                <Contact
-                    title="Send Us a Message"
-                    subtitle="Fill out the form below and our team will get back to you as soon as possible."
-                />
-
                 {/* Map Section */}
                 <div className="relative h-96">
                     <div className="absolute inset-0">
