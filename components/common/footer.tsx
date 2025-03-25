@@ -48,7 +48,7 @@ export default function Footer() {
               <a href="#" className="text-[#013d60] hover:text-[#9A7E43]">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-[#013d60] hover:text-[#9A7E43]">
+              <a href="https://www.linkedin.com/company/106932061" className="text-[#013d60] hover:text-[#9A7E43]">
                 <Linkedin size={20} />
               </a>
               <a href="mailto:info@tetsolutions.com" className="text-[#013d60] hover:text-[#9A7E43]">
